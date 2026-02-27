@@ -14,25 +14,13 @@ Description: Form for patient registration to gather account and demographic inf
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Patient Registration - Gulfstone Medical</title>
 
-  <link rel="stylesheet" href="style.css" />
-
-  <script>
-    // inline JS for dynamic date in banner
-    function renderBannerDate() {
-      const el = document.getElementById("todayDate");
-      const now = new Date();
-      const opts = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
-      el.textContent = now.toLocaleDateString("en-US", opts);
-    }
-    window.addEventListener("DOMContentLoaded", renderBannerDate);
-  </script>
+  <link rel="stylesheet" href="style.css" /> 
 </head>
-
 <body>
   <!-- ========================================= -->
   <div id="banner">
     <div class="banner-left">
-      <!-- Put your uploaded logo in the same folder -->
+      <!-- Put uploaded logo in the same folder -->
       <img src="logo.png" alt="Gulfstone logo" class="logo" />
     </div>
     <div class="banner-right">
@@ -203,5 +191,15 @@ Description: Form for patient registration to gather account and demographic inf
 
   <!-- End of patient-form.html -->
 </body>
+  <script>
+    // inline JS for dynamic date in banner
+    function renderBannerDate() {
+      const el = document.getElementById("todayDate");
+      const now = new Date();
+      const opts = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
+      el.textContent = now.toLocaleDateString("en-US", opts);
+    }
+    window.addEventListener("DOMContentLoaded", renderBannerDate);
+  </script>
 </html>
 
