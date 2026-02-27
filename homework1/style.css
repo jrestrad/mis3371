@@ -3,11 +3,11 @@ Program name: style.css
 Author: Jacob Richard Estrada
 Date created: 02/26/2026
 Date last edited: 02/27/2026
-Version: 1.1
-Description: External stylesheet for Gulfstone Medical patient registration form.
+Version: 1.2
+Description: External stylesheet for Gulfstone Medical patient registration + thank you pages.
 */
 
-/* ===== Sticky footer (MUST be at top-level, not inside #footer) ===== */
+/* ===== Sticky footer setup ===== */
 html, body {
   height: 100%;
   margin: 0;
@@ -17,16 +17,12 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-}
-
-/* Tag selector */
-body {
   font-family: Verdana, Arial, sans-serif;
-  background-color: #eef2f7;
+  background-color: #eef2f7; /* not default */
   color: #1f2937;
 }
 
-/* ID selector */
+/* ===== Banner ===== */
 #banner {
   display: flex;
   align-items: center;
@@ -55,23 +51,23 @@ body {
   opacity: 0.9;
 }
 
-/* ID selector */
+/* ===== Main ===== */
 #main {
+  flex: 1; /* pushes footer to bottom */
   padding: 24px 22px;
   max-width: 1100px;
   margin: 0 auto;
-  flex: 1; /* pushes footer to bottom */
 }
 
-/* Class selector */
 .subtitle {
   margin-top: 6px;
   color: #334155;
 }
 
-/* Table styling */
+/* ===== Form table layout (FIXES your spacing/overlap) ===== */
 .form-table {
   width: 100%;
+  table-layout: fixed;          /* key fix */
   border-collapse: separate;
   border-spacing: 12px 12px;
   background: #ffffff;
@@ -80,34 +76,46 @@ body {
   box-shadow: 0 10px 28px rgba(0, 0, 0, 0.10);
 }
 
-/* Make label columns consistent width */
+/* Label columns vs input columns */
 .form-table td:nth-child(1),
 .form-table td:nth-child(3),
 .form-table td:nth-child(5) {
-  width: 200px;
+  width: 22%;
+  vertical-align: middle;
 }
 
-/* Tag selector */
+.form-table td:nth-child(2),
+.form-table td:nth-child(4),
+.form-table td:nth-child(6) {
+  width: 11%;
+  vertical-align: middle;
+}
+
+/* Labels */
 label {
   font-weight: 700;
   font-size: 14px;
 }
 
-/* Inputs */
-input, select, textarea {
+/* Inputs inside the table (don’t blow up widths) */
+.form-table input,
+.form-table select,
+.form-table textarea {
   width: 100%;
+  box-sizing: border-box; /* key fix */
   padding: 9px 10px;
   border: 1px solid #cbd5e1;
   border-radius: 10px;
   font-size: 14px;
 }
 
-/* Make radio/checkbox not stretch to 100% */
+/* Make radio/checkbox not stretch */
 input[type="radio"], input[type="checkbox"] {
   width: auto;
   margin-right: 6px;
 }
 
+/* Textarea */
 textarea {
   resize: vertical;
 }
@@ -117,11 +125,18 @@ input[name="firstName"] {
   border-left: 5px solid #2aa6df;
 }
 
-/* Buttons */
+/* Colspan rows (radio/checkbox lines) spacing */
+.form-table td[colspan] label {
+  font-weight: 600;
+  margin-right: 14px;
+}
+
+/* Buttons row */
 .buttons {
   text-align: right;
 }
 
+/* Button styles */
 .btn {
   padding: 10px 14px;
   border-radius: 12px;
@@ -146,16 +161,16 @@ input[name="firstName"] {
   color: #052e16;
 }
 
-/* Footer */
+/* ===== Footer ===== */
 #footer {
-  margin-top: 22px;
+  width: 100%;
   padding: 16px 22px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 16px;
   background: #111827;
   color: #e5e7eb;
-  width: 100%;
 }
 
 /* Link + visited link (rubric item) */
@@ -169,4 +184,5 @@ input[name="firstName"] {
 }
 
 #footer a:hover {
-  text-decoration
+  text-decoration: underline;
+}
