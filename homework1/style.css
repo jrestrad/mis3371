@@ -142,6 +142,25 @@ input[name="firstName"] {
   gap: 16px;
   background: #111827;
   color: #e5e7eb;
+  html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#main {
+  flex: 1;   /* pushes footer to bottom */
+}
+
+#footer {
+  width: 100%;
+}
+
 }
 
 /* Link + visited link (rubric item) */
