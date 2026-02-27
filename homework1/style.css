@@ -1,0 +1,151 @@
+/*
+Program name: style.css
+Author: Jacob Richard Estrada
+Date created: 02/26/2026
+Date last edited: 02/27/2026
+Version: 1.0
+Description: External stylesheet for Gulfstone Medical patient registration form.
+*/
+
+/* Tag selector */
+body {
+  margin: 0;
+  font-family: Verdana, Arial, sans-serif;
+  background-color: #eef2f7; /* not default */
+  color: #1f2937;
+}
+
+/* ID selector */
+#banner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 22px;
+  background: #0b2a4a;
+  color: #ffffff;
+}
+
+.logo {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  border-radius: 12px;
+  border: 2px solid rgba(255,255,255,0.35);
+}
+
+#banner h1 {
+  margin: 0;
+  font-family: "Trebuchet MS", Verdana, sans-serif;
+  letter-spacing: 0.3px;
+}
+
+#banner p {
+  margin: 6px 0 0 0;
+  opacity: 0.9;
+}
+
+/* ID selector */
+#main {
+  padding: 24px 22px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Class selector */
+.subtitle {
+  margin-top: 6px;
+  color: #334155;
+}
+
+/* Table styling */
+.form-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 12px 12px;
+  background: #ffffff;
+  padding: 16px;
+  border-radius: 14px;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.10);
+}
+
+/* Tag selector */
+label {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+/* Inputs */
+input, select, textarea {
+  width: 100%;
+  padding: 9px 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+/* Make radio/checkbox not stretch to 100% */
+input[type="radio"], input[type="checkbox"] {
+  width: auto;
+  margin-right: 6px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* Name selector (shows you know another selector method) */
+input[name="firstName"] {
+  border-left: 5px solid #2aa6df;
+}
+
+/* Buttons */
+.buttons {
+  text-align: right;
+}
+
+.btn {
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-weight: 800;
+  margin-left: 10px;
+}
+
+.btn.primary {
+  background: #2aa6df;
+  color: #072236;
+}
+
+.btn.secondary {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+.btn.footer-btn {
+  background: #22c55e;
+  color: #052e16;
+}
+
+/* Footer */
+#footer {
+  margin-top: 22px;
+  padding: 16px 22px;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  background: #111827;
+  color: #e5e7eb;
+}
+
+/* Link + visited link (rubric item) */
+#footer a:link {
+  color: #93c5fd;
+  text-decoration: none;
+}
+#footer a:visited {
+  color: #c4b5fd;
+}
+#footer a:hover {
+  text-decoration: underline;
+}
