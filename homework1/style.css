@@ -186,3 +186,25 @@ input[name="firstName"] {
 #footer a:hover {
   text-decoration: underline;
 }
+
+.form-table td {
+  word-wrap: break-word;
+}
+
+.form-table input,
+.form-table select {
+  min-width: 180px;   /* prevents tiny inputs */
+}
+
+.form-table td:nth-child(1),
+.form-table td:nth-child(3),
+.form-table td:nth-child(5) {
+  width: 18%;
+}
+
+.form-table td:nth-child(2),
+.form-table td:nth-child(4),
+.form-table td:nth-child(6) {
+  width: 15%;
+}
+
