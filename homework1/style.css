@@ -8,6 +8,18 @@ Description: External stylesheet for Gulfstone Medical patient registration form
 */
 
 /* ===== Sticky footer (MUST be at top-level, not inside #footer) ===== */
+/* Prevent horizontal scrolling and make widths behave */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden; /* kills sideways scroll */
+}
+
 html, body {
   height: 100%;
   margin: 0;
