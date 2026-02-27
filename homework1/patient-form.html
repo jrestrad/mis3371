@@ -1,1 +1,207 @@
+<!--
+Program name: patient-form.html
+Author: YOUR NAME (UH roster)
+Date created: 02/26/2026
+Date last edited: 02/27/2026
+Version: 1.0
+Description: Patient registration form to collect demographic and account data (HW1).
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Patient Registration - We'R'Docs Medical</title>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <script>
+    // inline JS for dynamic date in banner
+    function renderBannerDate() {
+      const el = document.getElementById("todayDate");
+      const now = new Date();
+      const opts = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
+      el.textContent = now.toLocaleDateString("en-US", opts);
+    }
+    window.addEventListener("DOMContentLoaded", renderBannerDate);
+  </script>
+</head>
+
+<body>
+  <!-- ===================== HEADER / BANNER ===================== -->
+  <div id="banner">
+    <div class="banner-left">
+      <!-- Put your uploaded logo in the same folder -->
+      <img src="logo.png" alt="We'R'Docs Medical logo" class="logo" />
+    </div>
+    <div class="banner-right">
+      <h1>We'R'Docs Medical</h1>
+      <p>Today is: <span id="todayDate"></span></p>
+    </div>
+  </div>
+
+  <!-- ===================== MAIN CONTENT ===================== -->
+  <div id="main">
+    <h2>Patient Registration Form</h2>
+    <p class="subtitle">Please complete the form below to create your account and register as a new patient.</p>
+
+    <form action="thankyou.html">
+      <!-- Use TABLE layout as required -->
+      <table class="form-table">
+        <tr>
+          <td><label for="firstName">First Name (max 30)</label></td>
+          <td><input type="text" id="firstName" name="firstName" maxlength="30" required /></td>
+
+          <td><label for="middleInitial">MI (1)</label></td>
+          <td><input type="text" id="middleInitial" name="middleInitial" maxlength="1" /></td>
+
+          <td><label for="lastName">Last Name (max 30)</label></td>
+          <td><input type="text" id="lastName" name="lastName" maxlength="30" required /></td>
+        </tr>
+
+        <tr>
+          <td><label for="dob">Date of Birth (MM/DD/YYYY)</label></td>
+          <td><input type="text" id="dob" name="dob" placeholder="MM/DD/YYYY" /></td>
+
+          <td><label for="ssn">Social Security (9-11)</label></td>
+          <td><input type="password" id="ssn" name="ssn" minlength="9" maxlength="11" placeholder="***-**-****" /></td>
+
+          <td><label for="email">Email (name@domain.tld)</label></td>
+          <td><input type="email" id="email" name="email" placeholder="name@domain.com" required /></td>
+        </tr>
+
+        <tr>
+          <td><label for="addr1">Address Line 1 (max 30)</label></td>
+          <td><input type="text" id="addr1" name="addr1" maxlength="30" required /></td>
+
+          <td><label for="addr2">Address Line 2 (max 30)</label></td>
+          <td><input type="text" id="addr2" name="addr2" maxlength="30" /></td>
+
+          <td><label for="city">City (max 30)</label></td>
+          <td><input type="text" id="city" name="city" maxlength="30" required /></td>
+        </tr>
+
+        <tr>
+          <td><label for="state">State</label></td>
+          <td>
+            <select id="state" name="state" required>
+              <option value="">-- Select --</option>
+              <option value="AL">Alabama</option><option value="AK">Alaska</option><option value="AZ">Arizona</option>
+              <option value="AR">Arkansas</option><option value="CA">California</option><option value="CO">Colorado</option>
+              <option value="CT">Connecticut</option><option value="DE">Delaware</option><option value="DC">District of Columbia</option>
+              <option value="FL">Florida</option><option value="GA">Georgia</option><option value="HI">Hawaii</option>
+              <option value="ID">Idaho</option><option value="IL">Illinois</option><option value="IN">Indiana</option>
+              <option value="IA">Iowa</option><option value="KS">Kansas</option><option value="KY">Kentucky</option>
+              <option value="LA">Louisiana</option><option value="ME">Maine</option><option value="MD">Maryland</option>
+              <option value="MA">Massachusetts</option><option value="MI">Michigan</option><option value="MN">Minnesota</option>
+              <option value="MS">Mississippi</option><option value="MO">Missouri</option><option value="MT">Montana</option>
+              <option value="NE">Nebraska</option><option value="NV">Nevada</option><option value="NH">New Hampshire</option>
+              <option value="NJ">New Jersey</option><option value="NM">New Mexico</option><option value="NY">New York</option>
+              <option value="NC">North Carolina</option><option value="ND">North Dakota</option><option value="OH">Ohio</option>
+              <option value="OK">Oklahoma</option><option value="OR">Oregon</option><option value="PA">Pennsylvania</option>
+              <option value="PR">Puerto Rico</option>
+              <option value="RI">Rhode Island</option><option value="SC">South Carolina</option><option value="SD">South Dakota</option>
+              <option value="TN">Tennessee</option><option value="TX">Texas</option><option value="UT">Utah</option>
+              <option value="VT">Vermont</option><option value="VA">Virginia</option><option value="WA">Washington</option>
+              <option value="WV">West Virginia</option><option value="WI">Wisconsin</option><option value="WY">Wyoming</option>
+            </select>
+          </td>
+
+          <td><label for="zip">Zip (5-10 digits)</label></td>
+          <td><input type="text" id="zip" name="zip" minlength="5" maxlength="10" placeholder="77002" required /></td>
+
+          <td><label for="userId">Desired User ID (max 20)</label></td>
+          <td><input type="text" id="userId" name="userId" maxlength="20" required /></td>
+        </tr>
+
+        <tr>
+          <td><label for="pwd">Password</label></td>
+          <td><input type="password" id="pwd" name="pwd" required /></td>
+
+          <td><label for="pwd2">Re-enter Password</label></td>
+          <td><input type="password" id="pwd2" name="pwd2" required /></td>
+
+          <td><label for="health">Health (1-10)</label></td>
+          <td>
+            <input type="range" id="health" name="health" min="1" max="10" value="5" />
+          </td>
+        </tr>
+
+        <tr>
+          <td class="top"><label>Gender</label></td>
+          <td colspan="5">
+            <label><input type="radio" name="gender" value="male" /> Male</label>
+            <label><input type="radio" name="gender" value="female" /> Female</label>
+            <label><input type="radio" name="gender" value="other" /> Other</label>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="top"><label>Vaccinated?</label></td>
+          <td colspan="5">
+            <label><input type="radio" name="vaccinated" value="yes" /> Yes</label>
+            <label><input type="radio" name="vaccinated" value="no" /> No</label>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="top"><label>Insurance?</label></td>
+          <td colspan="5">
+            <label><input type="radio" name="insurance" value="yes" /> Yes</label>
+            <label><input type="radio" name="insurance" value="no" /> No</label>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="top"><label>Past Illnesses (check all that apply)</label></td>
+          <td colspan="5">
+            <label><input type="checkbox" name="illnesses" value="flu" /> Seasonal Flu</label>
+            <label><input type="checkbox" name="illnesses" value="covid19" /> Covid-19</label>
+            <label><input type="checkbox" name="illnesses" value="asthma" /> Asthma</label>
+            <label><input type="checkbox" name="illnesses" value="diabetes" /> Diabetes</label>
+            <label><input type="checkbox" name="illnesses" value="hypertension" /> Hypertension</label>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="top"><label for="symptoms">Describe current symptoms</label></td>
+          <td colspan="5">
+            <textarea id="symptoms" name="symptoms" rows="3" cols="50" placeholder="Describe symptoms here..."></textarea>
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="6" class="buttons">
+            <input type="reset" value="CLEAR AND START OVER" class="btn secondary" />
+            <input type="submit" value="Submit" class="btn primary" />
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>
+
+  <!-- ===================== FOOTER ===================== -->
+  <div id="footer">
+    <div class="footer-left">
+      <strong>We'R'Docs Medical</strong><br />
+      PO BOX 18881<br />
+      Sugar Land, TX 77496
+    </div>
+
+    <div class="footer-center">
+      <button type="button" class="btn footer-btn" onclick="alert('Contact Us: support@werdocs.example')">
+        Contact Us
+      </button>
+    </div>
+
+    <div class="footer-right">
+      <a href="https://twitter.com" target="_blank" rel="noopener">Twitter</a> |
+      <a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a>
+    </div>
+  </div>
+
+  <!-- End of patient-form.html -->
+</body>
+</html>
 
