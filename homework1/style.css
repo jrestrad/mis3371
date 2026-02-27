@@ -3,15 +3,26 @@ Program name: style.css
 Author: Jacob Richard Estrada
 Date created: 02/26/2026
 Date last edited: 02/27/2026
-Version: 1.0
+Version: 1.1
 Description: External stylesheet for Gulfstone Medical patient registration form.
 */
 
+/* ===== Sticky footer (MUST be at top-level, not inside #footer) ===== */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 /* Tag selector */
 body {
-  margin: 0;
   font-family: Verdana, Arial, sans-serif;
-  background-color: #eef2f7; /* not default */
+  background-color: #eef2f7;
   color: #1f2937;
 }
 
@@ -30,7 +41,7 @@ body {
   height: 70px;
   object-fit: contain;
   border-radius: 12px;
-  border: 2px solid rgba(255,255,255,0.35);
+  border: 2px solid rgba(255, 255, 255, 0.35);
 }
 
 #banner h1 {
@@ -49,6 +60,7 @@ body {
   padding: 24px 22px;
   max-width: 1100px;
   margin: 0 auto;
+  flex: 1; /* pushes footer to bottom */
 }
 
 /* Class selector */
@@ -65,13 +77,14 @@ body {
   background: #ffffff;
   padding: 16px;
   border-radius: 14px;
-  box-shadow: 0 10px 28px rgba(0,0,0,0.10)
-  .form-table td:nth-child(1),
-  .form-table td:nth-child(3),
-  .form-table td:nth-child(5) {
-  width: 200px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.10);
 }
-;
+
+/* Make label columns consistent width */
+.form-table td:nth-child(1),
+.form-table td:nth-child(3),
+.form-table td:nth-child(5) {
+  width: 200px;
 }
 
 /* Tag selector */
@@ -142,25 +155,7 @@ input[name="firstName"] {
   gap: 16px;
   background: #111827;
   color: #e5e7eb;
-  html, body {
-  height: 100%;
-  margin: 0;
-}
-
-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-#main {
-  flex: 1;   /* pushes footer to bottom */
-}
-
-#footer {
   width: 100%;
-}
-
 }
 
 /* Link + visited link (rubric item) */
@@ -168,9 +163,10 @@ body {
   color: #93c5fd;
   text-decoration: none;
 }
+
 #footer a:visited {
   color: #c4b5fd;
 }
+
 #footer a:hover {
-  text-decoration: underline;
-}
+  text-decoration
