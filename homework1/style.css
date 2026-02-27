@@ -65,7 +65,13 @@ body {
   background: #ffffff;
   padding: 16px;
   border-radius: 14px;
-  box-shadow: 0 10px 28px rgba(0,0,0,0.10);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.10)
+  .form-table td:nth-child(1),
+  .form-table td:nth-child(3),
+  .form-table td:nth-child(5) {
+  width: 200px;
+}
+;
 }
 
 /* Tag selector */
