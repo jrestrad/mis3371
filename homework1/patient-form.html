@@ -3,7 +3,7 @@ Program name: patient-form.html
 Author: Jacob Richard Estrada
 Date created: 02/26/2026
 Date last edited: 02/27/2026
-Version: 2.0
+Version: 2.1
 Description: Form for patient registration to gather account and demographic information. 
 -->
 
@@ -16,6 +16,7 @@ Description: Form for patient registration to gather account and demographic inf
 
   <link rel="stylesheet" href="style.css" /> 
 </head>
+
 <body>
   <!-- ================= BANNER =================== -->
   <div id="banner">
@@ -46,6 +47,7 @@ Description: Form for patient registration to gather account and demographic inf
           <td><input type="text" id="lastName" name="lastName" maxlength="30" required /></td>
         </tr>
 
+        <!-- DOB + SSN + Email stays together -->
         <tr>
           <td><label for="dob">Date of Birth (MM/DD/YYYY)</label></td>
           <td><input type="text" id="dob" name="dob" placeholder="MM/DD/YYYY" /></td>
@@ -55,16 +57,28 @@ Description: Form for patient registration to gather account and demographic inf
           <td><input type="email" id="email" name="email" placeholder="name@domain.com" required /></td>
         </tr>
 
+        <!-- User ID moved off the City/State/Zip line -->
+        <tr>
+          <td><label for="userId">Desired User ID (max 20)</label></td>
+          <td><input type="text" id="userId" name="userId" maxlength="20" required /></td>
+          <td></td><td></td><td></td><td></td>
+        </tr>
+
+        <!-- Address Line 1 and 2 together -->
         <tr>
           <td><label for="addr1">Address Line 1 (max 30)</label></td>
           <td><input type="text" id="addr1" name="addr1" maxlength="30" required /></td>
           <td><label for="addr2">Address Line 2 (max 30)</label></td>
           <td><input type="text" id="addr2" name="addr2" maxlength="30" /></td>
-          <td><label for="city">City (max 30)</label></td>
-          <td><input type="text" id="city" name="city" maxlength="30" required /></td>
+          <td></td>
+          <td></td>
         </tr>
 
+        <!-- City + State + Zip on the same line -->
         <tr>
+          <td><label for="city">City (max 30)</label></td>
+          <td><input type="text" id="city" name="city" maxlength="30" required /></td>
+
           <td><label for="state">State</label></td>
           <td>
             <select id="state" name="state" required>
@@ -92,18 +106,25 @@ Description: Form for patient registration to gather account and demographic inf
 
           <td><label for="zip">Zip (5-10 digits)</label></td>
           <td><input type="text" id="zip" name="zip" minlength="5" maxlength="10" placeholder="77002" required /></td>
-          <td><label for="userId">Desired User ID (max 20)</label></td>
-          <td><input type="text" id="userId" name="userId" maxlength="20" required /></td>
         </tr>
 
+        <!-- Passwords together (same row) -->
         <tr>
           <td><label for="pwd">Password</label></td>
           <td><input type="password" id="pwd" name="pwd" required /></td>
           <td><label for="pwd2">Re-enter Password</label></td>
           <td><input type="password" id="pwd2" name="pwd2" required /></td>
-          <td><label for="health">Health (1-10)</label></td>
-          <td>
-            <input type="range" id="health" name="health" min="1" max="10" value="5" />
+          <td></td>
+          <td></td>
+        </tr>
+
+        <!-- Slider gets its own clear row + shows 1 and 10 -->
+        <tr>
+          <td class="top"><label for="health">Current Wellness</label></td>
+          <td colspan="5">
+            <span style="font-weight:700; margin-right:10px;">1</span>
+            <input type="range" id="health" name="health" min="1" max="10" value="5" style="width:70%; vertical-align:middle;" />
+            <span style="font-weight:700; margin-left:10px;">10</span>
           </td>
         </tr>
 
@@ -142,7 +163,7 @@ Description: Form for patient registration to gather account and demographic inf
             <label><input type="checkbox" name="illnesses" value="hypertension" /> Hypertension</label>
           </td>
         </tr>
-        
+
         <tr>
           <td class="top"><label for="symptoms">Describe current symptoms</label></td>
           <td colspan="5">
@@ -175,12 +196,12 @@ Description: Form for patient registration to gather account and demographic inf
     </div>
 
     <div class="footer-right">
-      <a href="https://X.com" target="_blank" rel="noopener">X</a> |
+      <a href="https://x.com" target="_blank" rel="noopener">X</a> |
       <a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a>
     </div>
   </div>
-</body>
-  <!-- ================== SCRIPT===================== -->
+
+  <!-- ================== SCRIPT ===================== -->
   <script>
     function renderBannerDate() {
       const el = document.getElementById("todayDate");
@@ -190,5 +211,7 @@ Description: Form for patient registration to gather account and demographic inf
     }
     window.addEventListener("DOMContentLoaded", renderBannerDate);
   </script>
-</html>
 
+  <!-- End of patient-form.html -->
+</body>
+</html>
