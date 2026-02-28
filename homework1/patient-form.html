@@ -28,14 +28,14 @@ Description: Form for patient registration to gather account and demographic inf
     </div>
   </div>
   
-  <!-- ============= Main ==================== -->
+  <!-- ============ Main ==================== -->
   <div id="main">
     <h2>Patient Registration Form</h2>
     <p class="subtitle">Create a Gulfstone Medical patient portal account to sign up for your first appointment.</p>
     <form action="thankyou.html">
       <table class="form-table">
       
-  <!-- ============ Personal Information =========== -->
+  <!-- ============ Personal Information =============== -->
         <tr class="section-row">
           <td colspan="6" class="section-title">Personal Information</td>
         </tr>
@@ -55,13 +55,12 @@ Description: Form for patient registration to gather account and demographic inf
             <input type="text" id="dob" name="dob" placeholder="MM/DD/YYYY" />
           </td>
         </tr>
-        
-        <!--=========== Contact Verification ===========-->
+        <!--=========== Contact Verification ===================-->
         <tr class="section-row">
           <td colspan="6" class="section-title">Contact &amp; Verification</td>
         </tr>
         <tr>
-          <td><label for="email">Email</label></td>
+        <td><label for="email">Email</label></td>
           <td colspan="5">
             <input type="email" id="email" name="email" placeholder="name@gulfstonemedical.com" required />
           </td>
@@ -79,7 +78,7 @@ Description: Form for patient registration to gather account and demographic inf
           </td>
         </tr>
         
-        <!--============= Address ============ -->
+        <!--========== Address ================== -->
         <tr class="section-row">
           <td colspan="6" class="section-title">Address</td>
         </tr>
@@ -121,12 +120,10 @@ Description: Form for patient registration to gather account and demographic inf
           <td><label for="zip">ZIP (5-10 digits)</label></td>
           <td><input type="text" id="zip" name="zip" minlength="5" maxlength="10" placeholder="77002" required /></td>
         </tr>
-        
-        <!--============== Account Creation ============== -->
+        <!--============= Account Creation =============== -->
         <tr class="section-row">
           <td colspan="6" class="section-title">Account Creation</td>
         </tr>
-
         <tr>
           <td><label for="userId">Desired User ID (max 20)</label></td>
           <td colspan="5"><input type="text" id="userId" name="userId" maxlength="20" required /></td>
@@ -135,7 +132,7 @@ Description: Form for patient registration to gather account and demographic inf
         <tr>
           <td><label for="pwd">Password</label></td>
           <td colspan="2"><input type="password" id="pwd" name="pwd" required /></td>
-        
+
           <td><label for="pwd2">Re-enter Password</label></td>
           <td colspan="2"><input type="password" id="pwd2" name="pwd2" required /></td>
         </tr>
@@ -145,7 +142,7 @@ Description: Form for patient registration to gather account and demographic inf
           <td colspan="6" class="section-title">Health &amp; Insurance Questions</td>
         </tr>
         <tr>
-          <td class="top"><label>Gender</label></td>
+         <td class="top"><label>Gender</label></td>
           <td colspan="5">
             <label><input type="radio" name="gender" value="male" /> Male</label>
             <label><input type="radio" name="gender" value="female" /> Female</label>
@@ -176,7 +173,7 @@ Description: Form for patient registration to gather account and demographic inf
               <span class="slider-num">1</span>
               <input type="range" id="health" name="health" min="1" max="10" value="5" class="wellness-slider" />
               <span class="slider-num">10</span>
-            </div>
+          </div>
           </td>
         </tr>
 
@@ -230,9 +227,9 @@ Description: Form for patient registration to gather account and demographic inf
   <!-- ================ SCRIPT ==================== -->
   <script>
     function renderBannerDate() {
-      const el = document.getElementById("todayDate");
+      const lol = document.getElementById("todayDate");
       const now = new Date();
-      const opts = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
+      const opt = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
       el.textContent = now.toLocaleDateString("en-US", opts);
     }
     window.addEventListener("DOMContentLoaded", renderBannerDate);
