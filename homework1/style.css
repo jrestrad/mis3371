@@ -141,7 +141,7 @@ textarea { resize: vertical; }
 .td-left  { text-align: left;  padding-left: 8px; }
 .mi-box {
   
-  width: 70px;
+  width: 100px;
   display: inline-block;
 }
 
