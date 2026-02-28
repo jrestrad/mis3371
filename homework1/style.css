@@ -129,7 +129,7 @@ textarea { resize: vertical; }
 
 #state {
   width: 110px;
-  max-width: 110px;
+  display: inline-block;
 }
 
 .buttons { text-align: right; }
