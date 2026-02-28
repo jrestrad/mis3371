@@ -36,22 +36,20 @@ Description: Form for patient registration to gather account and demographic inf
     <form action="thankyou.html">
       <table class="form-table">
 
-        <!-- SECTION: Personal Information -->
+        <!-- =======Personal Information=========== -->
         <tr class="section-row">
           <td colspan="6" class="section-title">Personal Information</td>
         </tr>
-
-        <!-- Name row (ONLY horizontal row) -->
-        <tr>
-          <td><label for="firstName">First Name (max 30)</label></td>
-          <td><input type="text" id="firstName" name="firstName" maxlength="30" required /></td>
-
-          <td class="nowrap"><label for="middleInitial">MI</label></td>
-          <td class="mi-cell"><input type="text" id="middleInitial" name="middleInitial" maxlength="1" class="mi-input" /></td>
-
-          <td><label for="lastName">Last Name (max 30)</label></td>
-          <td><input type="text" id="lastName" name="lastName" maxlength="30" required /></td>
-        </tr>
+          <tr>
+            <td><label for="firstName">First Name (max 30)</label></td>
+            <td><input type="text" id="firstName" name="firstName" maxlength="30" required /></td>
+  
+            <td class="nowrap"><label for="middleInitial">MI</label></td>
+            <td class="mi-cell"><input type="text" id="middleInitial" name="middleInitial" maxlength="1" class="mi-input" /></td>
+  
+            <td><label for="lastName">Last Name (max 30)</label></td>
+            <td><input type="text" id="lastName" name="lastName" maxlength="30" required /></td>
+          </tr>
 
         <tr>
           <td><label for="dob">Date of Birth</label></td>
@@ -146,10 +144,10 @@ Description: Form for patient registration to gather account and demographic inf
 
         <tr>
           <td><label for="pwd">Password</label></td>
-          <td><input type="password" id="pwd" name="pwd" required /></td>
-
+          <td colspan="2"><input type="password" id="pwd" name="pwd" required /></td>
+        
           <td><label for="pwd2">Re-enter Password</label></td>
-          <td colspan="3"><input type="password" id="pwd2" name="pwd2" required /></td>
+          <td colspan="2"><input type="password" id="pwd2" name="pwd2" required /></td>
         </tr>
 
         <!-- SECTION: Health & Insurance -->
