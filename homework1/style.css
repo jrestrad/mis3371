@@ -69,7 +69,6 @@ body {
 
 .form-table {
   width: 100%;
-  table-layout: fixed; /* keeps table from stretching page wide */
   border-collapse: separate;
   border-spacing: 12px 12px;
   background: #ffffff;
@@ -110,6 +109,9 @@ textarea { resize: vertical; }
 
 .nowrap { white-space: nowrap; }
 
+.mi-cell { width: 70px; }
+.mi-input { width: 60px; }
+
 .slider-row {
   display: flex;
   align-items: center;
@@ -120,18 +122,11 @@ textarea { resize: vertical; }
   font-weight: 800;
   width: 18px;
   text-align: center;
-  line-height: 1; /* aligns 1 and 10 with the slider */
 }
 
 .wellness-slider {
   flex: 1;
   min-width: 250px;
-  vertical-align: middle; /* aligns slider line better */
-}
-
-/* Force the State dropdown to NOT be full width */
-#state {
-  width: 110px;
 }
 
 .buttons { text-align: right; }
@@ -141,7 +136,11 @@ textarea { resize: vertical; }
 }
 
 .mi-box {
-  width: 70px;
+  width: 70px;         
+  display: inline-block;
+}
+.state-box {
+  width: 110px;       
   display: inline-block;
 }
 
@@ -172,4 +171,5 @@ textarea { resize: vertical; }
 
 #footer a:link { color: #93c5fd; text-decoration: none; }
 #footer a:visited { color: #c4b5fd; }
-#footer a:hover { text-decoration: underline; }"
+#footer a:hover { text-decoration: underline; }
+"
