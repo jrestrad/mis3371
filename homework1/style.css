@@ -164,12 +164,19 @@ textarea { resize: vertical; }
   padding: 16px 22px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 16px;
   background: #111827;
   color: #e5e7eb;
   width: 100%;
+  flex-wrap: wrap;
 }
 
-#footer a:link { color: #93c5fd; text-decoration: none; }
-#footer a:visited { color: #c4b5fd; }
-#footer a:hover { text-decoration: underline; }
+.footer-left, .footer-center, .footer-right {
+  display: flex;
+  align-items: center;
+}
+
+.footer-left { flex: 1; }
+.footer-center { justify-content: center; }
+.footer-right { justify-content: flex-end; gap: 8px; }
