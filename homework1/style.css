@@ -160,7 +160,7 @@ textarea { resize: vertical; }
 .btn.footer-btn { background: #22c55e; color: #052e16; }
 
 #footer {
-  margin-top: 22px;
+  margin-top: auto;
   padding: 16px 22px;
   display: flex;
   justify-content: space-between;
