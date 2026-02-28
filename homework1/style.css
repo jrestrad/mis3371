@@ -163,20 +163,13 @@ textarea { resize: vertical; }
   margin-top: auto;
   padding: 16px 22px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   gap: 16px;
   background: #111827;
   color: #e5e7eb;
   width: 100%;
-  flex-wrap: wrap;
 }
 
-.footer-left, .footer-center, .footer-right {
-  display: flex;
-  align-items: center;
-}
-
-.footer-left { flex: 1; }
-.footer-center { justify-content: center; }
-.footer-right { justify-content: flex-end; gap: 8px; }
+.footer-left  { flex: 1; line-height: 1.25; }
+.footer-center{ flex: 1; display: flex; justify-content: center; }
+.footer-right { flex: 1; text-align: right; }
