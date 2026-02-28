@@ -3,8 +3,8 @@ Program name: patient-form.html
 Author: Jacob Richard Estrada
 Date created: 02/26/2026
 Date last edited: 02/27/2026
-Version: 2.1
-Description: Form for patient registration to gather account and demographic information. 
+Version: 2.2
+Description: Patient registration form to gather account, demographic, and basic health information.
 -->
 
 <!DOCTYPE html>
@@ -13,15 +13,13 @@ Description: Form for patient registration to gather account and demographic inf
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Patient Registration - Gulfstone Medical</title>
-
-  <link rel="stylesheet" href="style.css" /> 
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
   <!-- ================= BANNER =================== -->
   <div id="banner">
     <div class="banner-left">
-      <!-- Put uploaded logo in the same folder -->
       <img src="logo.png" alt="Gulfstone logo" class="logo" />
     </div>
     <div class="banner-right">
@@ -36,51 +34,88 @@ Description: Form for patient registration to gather account and demographic inf
     <p class="subtitle">Create a Gulfstone Medical patient portal account to sign up for your first appointment.</p>
 
     <form action="thankyou.html">
-      <!-- Use TABLE layout as required -->
       <table class="form-table">
+        <!-- Personal Information -->
+        <tr>
+          <td colspan="6"><strong>Personal Information</strong></td>
+        </tr>
+
+        <!-- ONLY horizontal row: name -->
         <tr>
           <td><label for="firstName">First Name (max 30)</label></td>
           <td><input type="text" id="firstName" name="firstName" maxlength="30" required /></td>
-          <td><label for="middleInitial">MI (1)</label></td>
+
+          <td><label for="middleInitial">MI</label></td>
           <td><input type="text" id="middleInitial" name="middleInitial" maxlength="1" /></td>
+
           <td><label for="lastName">Last Name (max 30)</label></td>
           <td><input type="text" id="lastName" name="lastName" maxlength="30" required /></td>
         </tr>
 
-        <!-- DOB + SSN + Email stays together -->
         <tr>
-          <td><label for="dob">Date of Birth (MM/DD/YYYY)</label></td>
-          <td><input type="text" id="dob" name="dob" placeholder="MM/DD/YYYY" /></td>
-          <td><label for="ssn">Social Security (9-11)</label></td>
-          <td><input type="password" id="ssn" name="ssn" minlength="9" maxlength="11" placeholder="***-**-****" /></td>
-          <td><label for="email">Email (name@domain.tld)</label></td>
-          <td><input type="email" id="email" name="email" placeholder="name@domain.com" required /></td>
+          <td><label for="dob">Date of Birth</label></td>
+          <td colspan="5">
+            <input type="date" id="dob" name="dob" />
+            <span class="hint">(MM/DD/YYYY)</span>
+          </td>
         </tr>
 
-        <!-- User ID moved off the City/State/Zip line -->
+        <!-- Contact & Verification -->
         <tr>
-          <td><label for="userId">Desired User ID (max 20)</label></td>
-          <td><input type="text" id="userId" name="userId" maxlength="20" required /></td>
-          <td></td><td></td><td></td><td></td>
+          <td colspan="6"><strong>Contact &amp; Verification</strong></td>
         </tr>
 
-        <!-- Address Line 1 and 2 together -->
+        <tr>
+          <td><label for="email">Email</label></td>
+          <td colspan="5">
+            <input type="email" id="email" name="email" placeholder="name@domain.tld" required />
+          </td>
+        </tr>
+
+        <tr>
+          <td><label for="phone">Phone Number</label></td>
+          <td colspan="5">
+            <input type="tel" id="phone" name="phone" placeholder="###-###-####" />
+          </td>
+        </tr>
+
+        <tr>
+          <td><label for="ssn">Social Security</label></td>
+          <td colspan="5">
+            <input type="password" id="ssn" name="ssn" minlength="9" maxlength="11" placeholder="***-**-****" />
+            <span class="hint">(9–11 digits, masked)</span>
+          </td>
+        </tr>
+
+        <!-- Address -->
+        <tr>
+          <td colspan="6"><strong>Address</strong></td>
+        </tr>
+
         <tr>
           <td><label for="addr1">Address Line 1 (max 30)</label></td>
-          <td><input type="text" id="addr1" name="addr1" maxlength="30" required /></td>
-          <td><label for="addr2">Address Line 2 (max 30)</label></td>
-          <td><input type="text" id="addr2" name="addr2" maxlength="30" /></td>
-          <td></td>
-          <td></td>
+          <td colspan="5">
+            <input type="text" id="addr1" name="addr1" maxlength="30" required />
+          </td>
         </tr>
 
-        <!-- City + State + Zip on the same line -->
+        <tr>
+          <td><label for="addr2">Address Line 2 (max 30)</label></td>
+          <td colspan="5">
+            <input type="text" id="addr2" name="addr2" maxlength="30" />
+          </td>
+        </tr>
+
         <tr>
           <td><label for="city">City (max 30)</label></td>
-          <td><input type="text" id="city" name="city" maxlength="30" required /></td>
+          <td colspan="5">
+            <input type="text" id="city" name="city" maxlength="30" required />
+          </td>
+        </tr>
 
+        <tr>
           <td><label for="state">State</label></td>
-          <td>
+          <td colspan="5">
             <select id="state" name="state" required>
               <option value="">-- Select --</option>
               <option value="AL">Alabama</option><option value="AK">Alaska</option><option value="AZ">Arizona</option>
@@ -103,38 +138,44 @@ Description: Form for patient registration to gather account and demographic inf
               <option value="WV">West Virginia</option><option value="WI">Wisconsin</option><option value="WY">Wyoming</option>
             </select>
           </td>
-
-          <td><label for="zip">Zip (5-10 digits)</label></td>
-          <td><input type="text" id="zip" name="zip" minlength="5" maxlength="10" placeholder="77002" required /></td>
         </tr>
 
-        <!-- Passwords together (same row) -->
+        <tr>
+          <td><label for="zip">ZIP (5-10 digits)</label></td>
+          <td colspan="5">
+            <input type="text" id="zip" name="zip" minlength="5" maxlength="10" placeholder="77030" required />
+          </td>
+        </tr>
+
+        <!-- Account Creation -->
+        <tr>
+          <td colspan="6"><strong>Account Creation</strong></td>
+        </tr>
+
+        <tr>
+          <td><label for="userId">Desired User ID (max 20)</label></td>
+          <td colspan="5">
+            <input type="text" id="userId" name="userId" maxlength="20" required />
+          </td>
+        </tr>
+
         <tr>
           <td><label for="pwd">Password</label></td>
-          <td><input type="password" id="pwd" name="pwd" required /></td>
+          <td colspan="5">
+            <input type="password" id="pwd" name="pwd" required />
+          </td>
+        </tr>
+
+        <tr>
           <td><label for="pwd2">Re-enter Password</label></td>
-          <td><input type="password" id="pwd2" name="pwd2" required /></td>
-          <td></td>
-          <td></td>
-        </tr>
-
-        <!-- Slider gets its own clear row + shows 1 and 10 -->
-        <tr>
-          <td class="top"><label for="health">Current Wellness</label></td>
           <td colspan="5">
-            <span style="font-weight:700; margin-right:10px;">1</span>
-            <input type="range" id="health" name="health" min="1" max="10" value="5" style="width:70%; vertical-align:middle;" />
-            <span style="font-weight:700; margin-left:10px;">10</span>
+            <input type="password" id="pwd2" name="pwd2" required />
           </td>
         </tr>
 
+        <!-- Health & Insurance -->
         <tr>
-          <td class="top"><label>Gender</label></td>
-          <td colspan="5">
-            <label><input type="radio" name="gender" value="male" /> Male</label>
-            <label><input type="radio" name="gender" value="female" /> Female</label>
-            <label><input type="radio" name="gender" value="other" /> Other</label>
-          </td>
+          <td colspan="6"><strong>Health &amp; Insurance Questions</strong></td>
         </tr>
 
         <tr>
@@ -150,6 +191,15 @@ Description: Form for patient registration to gather account and demographic inf
           <td colspan="5">
             <label><input type="radio" name="insurance" value="yes" /> Yes</label>
             <label><input type="radio" name="insurance" value="no" /> No</label>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="top"><label for="health">Current Wellness</label></td>
+          <td colspan="5">
+            <span class="range-label">1</span>
+            <input type="range" id="health" name="health" min="1" max="10" value="5" class="wellness" />
+            <span class="range-label">10</span>
           </td>
         </tr>
 
@@ -190,7 +240,7 @@ Description: Form for patient registration to gather account and demographic inf
     </div>
 
     <div class="footer-center">
-      <button type="button" class="btn footer-btn" onclick="alert('Contact Us: support@Gulfstonemedical.com')">
+      <button type="button" class="btn footer-btn" onclick="alert('Contact Us: support@GulfstoneMedical.com')">
         Contact Us
       </button>
     </div>
@@ -204,9 +254,9 @@ Description: Form for patient registration to gather account and demographic inf
   <!-- ================== SCRIPT ===================== -->
   <script>
     function renderBannerDate() {
-      const el = document.getElementById("todayDate");
-      const now = new Date();
-      const opts = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
+      var el = document.getElementById("todayDate");
+      var now = new Date();
+      var opts = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
       el.textContent = now.toLocaleDateString("en-US", opts);
     }
     window.addEventListener("DOMContentLoaded", renderBannerDate);
