@@ -44,8 +44,10 @@ Description: Form for patient registration to gather account and demographic inf
             <td><label for="firstName">First Name (max 30)</label></td>
             <td><input type="text" id="firstName" name="firstName" maxlength="30" required /></td>
   
-            <td class="nowrap"><label for="middleInitial">MI</label></td>
-            <td class="mi-cell"><input type="text" id="middleInitial" name="middleInitial" maxlength="1" class="mi-input" /></td>
+            <td><label for="middleInitial">MI</label></td>
+            <td class="center-cell">
+              <input type="text" id="middleInitial" name="middleInitial" maxlength="1" class="mi-box" />
+            </td>
   
             <td><label for="lastName">Last Name (max 30)</label></td>
             <td><input type="text" id="lastName" name="lastName" maxlength="30" required /></td>
@@ -104,6 +106,9 @@ Description: Form for patient registration to gather account and demographic inf
           <td><input type="text" id="city" name="city" maxlength="30" required /></td>
 
           <td><label for="state">State</label></td>
+           <td class="center-cell">
+            <select id="state" name="state" class="state-box" required>
+            <option value="">-- Select --</option>
           <td>
             <select id="state" name="state" required>
               <option value="">-- Select --</option>
@@ -239,7 +244,7 @@ Description: Form for patient registration to gather account and demographic inf
       <a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a>
     </div>
   </div>
-
+  <!-- ================ SCRIPT ==================== -->
   <script>
     function renderBannerDate() {
       const el = document.getElementById("todayDate");
