@@ -131,6 +131,19 @@ textarea { resize: vertical; }
 
 .buttons { text-align: right; }
 
+.center-cell {
+  text-align: center;
+}
+
+.mi-box {
+  width: 70px;         
+  display: inline-block;
+}
+.state-box {
+  width: 110px;       
+  display: inline-block;
+}
+
 .btn {
   padding: 10px 22px;
   border-radius: 12px;
