@@ -17,7 +17,7 @@ Description: Form for patient registration to gather account and demographic inf
 </head>
 
 <body>
-  <!-- ================= BANNER =================== -->
+  <!-- ================= Banner =================== -->
   <div id="banner">
     <div class="banner-left">
       <img src="logo.png" alt="Gulfstone logo" class="logo" />
@@ -27,84 +27,73 @@ Description: Form for patient registration to gather account and demographic inf
       <p>Today is: <span id="todayDate"></span></p>
     </div>
   </div>
-
-  <!-- =================== MAIN ==================== -->
+  
+  <!-- ============= Main ==================== -->
   <div id="main">
     <h2>Patient Registration Form</h2>
     <p class="subtitle">Create a Gulfstone Medical patient portal account to sign up for your first appointment.</p>
-
     <form action="thankyou.html">
       <table class="form-table">
-
-        <!-- =======Personal Information=========== -->
+      
+  <!-- ============ Personal Information =========== -->
         <tr class="section-row">
           <td colspan="6" class="section-title">Personal Information</td>
         </tr>
           <tr>
             <td><label for="firstName">First Name (max 30)</label></td>
             <td><input type="text" id="firstName" name="firstName" maxlength="30" required /></td>
-  
             <td><label for="middleInitial">MI</label></td>
             <td class="center-cell">
               <input type="text" id="middleInitial" name="middleInitial" maxlength="1" class="mi-box" />
             </td>
-  
             <td><label for="lastName">Last Name (max 30)</label></td>
             <td><input type="text" id="lastName" name="lastName" maxlength="30" required /></td>
           </tr>
-
         <tr>
           <td><label for="dob">Date of Birth</label></td>
           <td colspan="5">
             <input type="text" id="dob" name="dob" placeholder="MM/DD/YYYY" />
           </td>
         </tr>
-
-        <!-- SECTION: Contact & Verification -->
+        
+        <!--=========== Contact Verification ===========-->
         <tr class="section-row">
           <td colspan="6" class="section-title">Contact &amp; Verification</td>
         </tr>
-
         <tr>
           <td><label for="email">Email</label></td>
           <td colspan="5">
             <input type="email" id="email" name="email" placeholder="name@gulfstonemedical.com" required />
           </td>
         </tr>
-
         <tr>
           <td><label for="phone">Phone Number</label></td>
           <td colspan="5">
             <input type="tel" id="phone" name="phone" placeholder="###-###-####" />
           </td>
         </tr>
-
         <tr>
           <td><label for="ssn">Social Security</label></td>
           <td colspan="5">
             <input type="password" id="ssn" name="ssn" minlength="9" maxlength="11" placeholder="***-**-****" />
           </td>
         </tr>
-
-        <!-- SECTION: Address -->
+        
+        <!--============= Address ============ -->
         <tr class="section-row">
           <td colspan="6" class="section-title">Address</td>
         </tr>
-
         <tr>
           <td><label for="addr1">Address Line 1 (max 30)</label></td>
           <td colspan="5"><input type="text" id="addr1" name="addr1" maxlength="30" required /></td>
         </tr>
-
         <tr>
           <td><label for="addr2">Address Line 2 (max 30)</label></td>
           <td colspan="5"><input type="text" id="addr2" name="addr2" maxlength="30" /></td>
         </tr>
-
         <tr>
           <td><label for="city">City (max 30)</label></td>
           <td><input type="text" id="city" name="city" maxlength="30" required /></td>
-
           <td><label for="state">State</label></td>
            <td class="center-cell">
             <select id="state" name="state" required>
@@ -129,12 +118,11 @@ Description: Form for patient registration to gather account and demographic inf
               <option value="WV">West Virginia</option><option value="WI">Wisconsin</option><option value="WY">Wyoming</option>
             </select>
           </td>
-
           <td><label for="zip">ZIP (5-10 digits)</label></td>
           <td><input type="text" id="zip" name="zip" minlength="5" maxlength="10" placeholder="77002" required /></td>
         </tr>
-
-        <!-- SECTION: Account Creation -->
+        
+        <!--============== Account Creation ============== -->
         <tr class="section-row">
           <td colspan="6" class="section-title">Account Creation</td>
         </tr>
@@ -152,13 +140,11 @@ Description: Form for patient registration to gather account and demographic inf
           <td colspan="2"><input type="password" id="pwd2" name="pwd2" required /></td>
         </tr>
 
-        <!-- SECTION: Health & Insurance -->
+        <!-- =============== Health and Insurance ================== -->
         <tr class="section-row">
           <td colspan="6" class="section-title">Health &amp; Insurance Questions</td>
         </tr>
-
         <tr>
-          <tr>
           <td class="top"><label>Gender</label></td>
           <td colspan="5">
             <label><input type="radio" name="gender" value="male" /> Male</label>
