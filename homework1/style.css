@@ -15,10 +15,10 @@ body {
 }
 
 #banner {
-  background-color: #004080;   
+  background-color: #0b2a4a;   
   color: white;
   padding: 15px;
-  text-align: center;        
+  text-align: left;        
 }
 
 #banner h1 {
