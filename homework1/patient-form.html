@@ -78,17 +78,29 @@ Description: Homework 1 - Form for patient registration
           <td colspan="6" class="section-title">Address</td>
         </tr>
         <tr>
-          <td><label for="addr1">Address Line 1 (max 30)</label></td>
-          <td colspan="5"><input type="text" id="addr1" name="addr1" maxlength="30" required /></td>
+          <td>
+              <label for="addr1">Address Line 1 (max 30)</label>
+          </td>
+          <td colspan="5">
+              <input type="text" id="addr1" name="addr1" maxlength="30" required />
+          </td>
         </tr>
         <tr>
           <td><label for="addr2">Address Line 2 (max 30)</label></td>
-          <td colspan="5"><input type="text" id="addr2" name="addr2" maxlength="30" /></td>
+          <td colspan="5">
+              <input type="text" id="addr2" name="addr2" maxlength="30" />
+          </td>
         </tr>
         <tr>
-          <td><label for="city">City (max 30)</label></td>
-          <td><input type="text" id="city" name="city" maxlength="30" required /></td>
-         <td style="text-align:center;"><label for="state">State</label></td>
+          <td>
+              <label for="city">City (max 30)</label>
+          </td>
+          <td>
+              <input type="text" id="city" name="city" maxlength="30" required />
+          </td>
+         <td style="text-align:center;">
+             <label for="state">State</label>
+         </td>
            <td class="center-cell">
             <select id="state" name="state" required>
                 <option value=""></option>
@@ -145,24 +157,38 @@ Description: Homework 1 - Form for patient registration
                 <option value="WY">Wyoming</option>
             </select>
           </td>
-          <td><label for="zip">ZIP (5-10 digits)</label></td>
-          <td><input type="text" id="zip" name="zip" minlength="5" maxlength="10" placeholder="77002" required /></td>
+          <td>
+              <label for="zip">ZIP (5-10 digits)</label>
+          </td>
+          <td>
+              <input type="text" id="zip" name="zip" minlength="5" maxlength="10" placeholder="77002" required />
+          </td>
         </tr>
         <!--Account Questions-->
         <tr class="section-row">
           <td colspan="6" class="section-title">Account Creation</td>
         </tr>
         <tr>
-          <td><label for="userId">Desired User ID (max 20)</label></td>
-          <td colspan="5"><input type="text" id="userId" name="userId" maxlength="20" required /></td>
+          <td><label for="userId">Desired User ID (max 20)</label>
+          </td>
+          <td colspan="5"><input type="text" id="userId" name="userId" maxlength="20" required />
+          </td>
         </tr>
 
         <tr>
-          <td><label for="pwd">Password</label></td>
-          <td colspan="2"><input type="password" id="pwd" name="pwd" required /></td>
+          <td>
+              <label for="pwd">Password</label>
+          </td>
+          <td colspan="2">
+              <input type="password" id="pwd" name="pwd" required />
+          </td>
 
-          <td><label for="pwd2">Re-enter Password</label></td>
-          <td colspan="2"><input type="password" id="pwd2" name="pwd2" required /></td>
+          <td>
+              <label for="pwd2">Re-enter Password</label>
+          </td>
+          <td colspan="2">
+              <input type="password" id="pwd2" name="pwd2" required />
+          </td>
         </tr>
 
         <!-- Health Quesiton -->
@@ -234,24 +260,29 @@ Description: Homework 1 - Form for patient registration
   </div>
 
   <!--Footer-->
-  <div id="footer">
-    <div class="footer-left">
-      <strong>Gulfstone Medical</strong><br />
-      1234 Main St, Suite 200<br />
-      Houston, TX 77030
-    </div>
+ <div id="footer">
+  <table width="100%">
+    <tr>
+      <td>
+        <strong>Gulfstone Medical</strong><br>
+        1234 Main St, Suite 200<br>
+        Houston, TX 77030
+      </td>
 
-    <div class="footer-center">
-      <button type="button" class="btn footer-btn" onclick="alert('Contact Us: support@gulfstonemedical.com')">
-        Contact Us
-      </button>
-    </div>
+      <td align="center">
+        <button type="button" class="btn footer-btn"
+          onclick="alert('Contact Us: support@gulfstonemedical.com')">
+          Contact Us
+        </button>
+      </td>
 
-    <div class="footer-right">
-      <a href="https://x.com" target="_blank" rel="noopener">X</a> |
-      <a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a>
-    </div>
-  </div>
+      <td align="right">
+        <a href="https://x.com" target="_blank" rel="noopener">X</a> |
+        <a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a>
+      </td>
+    </tr>
+  </table>
+</div>
   <!--Script-->
     <script>
       document.getElementById("todayDate").innerHTML =
