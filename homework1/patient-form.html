@@ -29,11 +29,10 @@ Description: Homework 1 - Form for patient registration
   <!-- main form area-->
   <div id="main">
     <h2>Patient Registration Form</h2>
-    <p class="subtitle">Create a Gulfstone Medical patient portal account to sign up for your first appointment.</p>
     <form action="thankyou.html">
       <table class="form-table">
       
-  <!-- ============ Personal Information =============== -->
+  <!--Patient Info -->
         <tr class="section-row">
           <td colspan="6" class="section-title">Personal Information</td>
         </tr>
@@ -53,7 +52,7 @@ Description: Homework 1 - Form for patient registration
             <input type="text" id="dob" name="dob" placeholder="MM/DD/YYYY" />
           </td>
         </tr>
-        <!--=========== Contact Verification ===================-->
+        <!--Contact info-->
         <tr class="section-row">
           <td colspan="6" class="section-title">Contact &amp; Verification</td>
         </tr>
@@ -76,7 +75,7 @@ Description: Homework 1 - Form for patient registration
           </td>
         </tr>
         
-        <!--========== Address ================== -->
+        <!--Adresss- -->
         <tr class="section-row">
           <td colspan="6" class="section-title">Address</td>
         </tr>
@@ -118,7 +117,7 @@ Description: Homework 1 - Form for patient registration
           <td><label for="zip">ZIP (5-10 digits)</label></td>
           <td><input type="text" id="zip" name="zip" minlength="5" maxlength="10" placeholder="77002" required /></td>
         </tr>
-        <!--============= Account Creation =============== -->
+        <!--Account Questions-->
         <tr class="section-row">
           <td colspan="6" class="section-title">Account Creation</td>
         </tr>
@@ -135,7 +134,7 @@ Description: Homework 1 - Form for patient registration
           <td colspan="2"><input type="password" id="pwd2" name="pwd2" required /></td>
         </tr>
 
-        <!-- =============== Health and Insurance ================== -->
+        <!-- Health Quesiton -->
         <tr class="section-row">
           <td colspan="6" class="section-title">Health &amp; Insurance Questions</td>
         </tr>
@@ -203,7 +202,7 @@ Description: Homework 1 - Form for patient registration
     </form>
   </div>
 
-  <!-- ================= FOOTER ====================== -->
+  <!--Footer-->
   <div id="footer">
     <div class="footer-left">
       <strong>Gulfstone Medical</strong><br />
@@ -222,15 +221,10 @@ Description: Homework 1 - Form for patient registration
       <a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a>
     </div>
   </div>
-  <!-- ================ SCRIPT ==================== -->
-  <script>
-    function renderBannerDate() {
-      const lol = document.getElementById("todayDate");
-      const now = new Date();
-      const opt = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
-      lol.textContent = now.toLocaleDateString("en-US", opt);
-    }
-    window.addEventListener("DOMContentLoaded", renderBannerDate);
-  </script>
+  <!--Script-->
+    <script>
+      document.getElementById("todayDate").innerHTML =
+        new Date().toLocaleDateString("en-US", { weekday:"long", year:"numeric", month:"long", day:"numeric" });
+    </script>
 </body>
 </html>
