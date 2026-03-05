@@ -49,9 +49,10 @@ body {
   border-collapse: separate;
   border-spacing: 6px 8px;
   background-color: white;
-  table-layout: fixed;
 }
-
+css.form-table td:first-child {
+  width: 220px;
+}
 .section-title {
   background-color: #e0e8f0;
   font-weight: bold;
