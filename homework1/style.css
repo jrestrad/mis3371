@@ -85,6 +85,7 @@ input[type="radio"], input[type="checkbox"] {
   border-radius: 6px;
   cursor: pointer;
   font-weight: bold;
+  width: auto;
 }
 
 .btn.primary {
