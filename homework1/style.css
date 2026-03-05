@@ -62,7 +62,7 @@ label {
   font-weight: bold;
   white-space: nowrap;
   padding: 0 6px;
-  width: 60px; 
+   
   
 }
 
@@ -105,18 +105,24 @@ input[type="radio"], input[type="checkbox"] {
 }
 .footer-center {
   text-align: center;
-   margin-center: 30px;
+   
 }
 .footer-right {
   text-align: right;
-   margin-center: 30px;
+   
 }
 #footer a {
   color: #99ccff;
   text-decoration: none;
 }
-
+input[type="reset"], input[type="submit"] {
+  width: auto;
+}
+.buttons {
+  text-align: center;
+  padding: 14px 0;
+}
 .mi-box {
-  width: 38px;
+  width: 38px !important;
 }
 
