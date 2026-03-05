@@ -66,12 +66,8 @@ label {
   
 }
 
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="password"],
-select,
-textarea {
+
+input, select,textarea {
   padding: 8px;
   border: 1px solid #999;
   border-radius: 4px;         
