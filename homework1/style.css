@@ -49,6 +49,7 @@ body {
   border-collapse: separate;
   border-spacing: 6px 8px;
   background-color: white;
+  table-layout:
 }
 
 .section-title {
