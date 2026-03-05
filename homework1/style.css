@@ -39,7 +39,7 @@ body {
   vertical-align: middle;
 }
 #main {
-  padding: 20px;
+  padding: 20px 30px;
   max-width: 1000px;
   margin: 0 auto;
 }
@@ -47,22 +47,31 @@ body {
 .form-table {
   width: 100%;
   border-collapse: separate;
-  border-spacing: 10px;
+  border-spacing: 6px 8px;
   background-color: white;
 }
 
 .section-title {
   background-color: #e0e8f0;
   font-weight: bold;
-  padding: 8px;
+  padding: 8px 10px;
   color: #004080;
 }
 
 label {
   font-weight: bold;
+  white-space: nowrap;
+  padding: 0 6px;
+  width: 60px; 
+  
 }
 
-input, select, textarea {
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+select,
+textarea {
   padding: 8px;
   border: 1px solid #999;
   border-radius: 4px;         
@@ -112,6 +121,6 @@ input[type="radio"], input[type="checkbox"] {
 }
 
 .mi-box {
-  width: 40px;
+  width: 38px;
 }
 
