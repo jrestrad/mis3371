@@ -50,9 +50,6 @@ body {
   border-spacing: 6px 8px;
   background-color: white;
 }
-.form-table td:first-child {
-  width: 220px;
-}
 .section-title {
   background-color: #e0e8f0;
   font-weight: bold;
@@ -63,10 +60,7 @@ body {
 label {
   font-weight: bold;
   padding: 0 6px;
-   
-  
 }
-
 
 input, select,textarea {
   padding: 8px;
