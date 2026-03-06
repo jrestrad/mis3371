@@ -46,6 +46,7 @@ body {
 
 .form-table {
   width: 100%;
+  table-layout: fixed;
   border-collapse: separate;
   border-spacing: 6px 8px;
   background-color: white;
@@ -71,6 +72,7 @@ input, select,textarea {
   border-radius: 4px;         
   font-size: 14px;
   width: 95%;
+  box-sizing: border-box;
 }
 
 input[type="radio"], input[type="checkbox"] {
@@ -131,10 +133,6 @@ input[type="radio"], input[type="checkbox"] {
   min-width: 150px;
 }
 
-#zip {
-  min-width: 80px;
-}
-
-#state {
-  width: auto;
+.top {
+  vertical-align: top;
 }
