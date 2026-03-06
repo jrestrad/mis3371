@@ -110,13 +110,14 @@ input[type="radio"], input[type="checkbox"] {
 #footer a {
   color: #99ccff;
   text-decoration: none;
-}
-input[type="reset"], input[type="submit"] {
-  width: auto;
+} 
 }
 .buttons {
   text-align: center;
   padding: 14px 0;
+}
+.wellness-slider {
+  width: 80%;
 }
 .mi-box {
   width: 38px !important;
