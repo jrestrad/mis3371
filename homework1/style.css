@@ -50,6 +50,9 @@ body {
   border-spacing: 6px 8px;
   background-color: white;
 }
+.form-table td {
+  vertical-align: middle;
+}
 .section-title {
   background-color: #e0e8f0;
   font-weight: bold;
@@ -120,6 +123,9 @@ input[type="radio"], input[type="checkbox"] {
 }
 .mi-box {
   width: 38px !important;
+}
+.center-cell {
+  padding-left: 12px;
 }
 #lastName {
   min-width: 150px;
