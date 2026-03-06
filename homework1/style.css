@@ -121,4 +121,14 @@ input[type="radio"], input[type="checkbox"] {
 .mi-box {
   width: 38px !important;
 }
+#lastName {
+  min-width: 150px;
+}
 
+#zip {
+  min-width: 80px;
+}
+
+#state {
+  width: auto;
+}
