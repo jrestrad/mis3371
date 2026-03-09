@@ -1,63 +1,61 @@
+<!DOCTYPE html>
 <!--
 Program name: thankyou.html
 Author: Jacob Richard Estrada
 Date created: 02/26/2026
 Date last edited: 02/27/2026
-Version: 1.0
-Description: Confirmation page shown after submitting the patient registration form.
+Version: 2.4
+Description: Confirmation page shown after submitting form 
 -->
-
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Thank You - Gulfstone Medical</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-  <!-- ===================== BANNER ===================== -->
+  <!--banner-->
   <div id="banner">
-    <div class="banner-left">
+    <div class="banner">
       <img src="logo.png" alt="Gulfstone logo" class="logo" />
-    </div>
-    <div class="banner-right">
+    <div class="title-block">
       <h1>Gulfstone Medical</h1>
       <p>Patient Portal Registration</p>
     </div>
   </div>
 
-  <!-- ===================== MAIN ===================== -->
+  <!--main -->
   <div id="main">
     <h2>Thank you for your submission.</h2>
-    <p>We received your registration form. A staff member may contact you within 1–2 business days.</p>
-
+    <p>We received your registration. A staff member may contact you in a few business days.</p>
     <p>
       <a href="patient-form.html">Return to the registration form</a>
     </p>
   </div>
-
-  <!-- ===================== FOOTER ===================== -->
+  <!-- footer-->
   <div id="footer">
-    <div class="footer-left">
-      <strong>Gulfstone Medical</strong><br />
-      1234 Main St, Suite 200<br />
+    <table width="100%">
+      <tr>
+      <td nowrap>
+      <strong>Gulfstone Medical</strong>
+        <br>
+      1234 Main St, Suite 200<br>
       Houston, TX 77030
-    </div>
+      </td>
 
-    <div class="footer-center">
-      <button type="button" class="btn footer-btn" onclick="alert('Contact Us: support@gulfstonemedical.com')">
-        Contact Us
-      </button>
-    </div>
+     <td align="center" width="100%">
+          <button type="button" class="btn footer-btn"
+            onclick="alert('Contact Us: support@gulfstonemedical.com')">
+            Contact Us
+          </button>
+        </td>
 
-    <div class="footer-right">
-      <a href="https://x.com" target="_blank" rel="noopener">X</a> |
-      <a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a>
-    </div>
+        <td align="right" nowrap>
+          <a href="https://x.com" target="_blank" rel="noopener">X</a> |
+          <a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a>
+        </td>
+      </tr>
+    </table>
   </div>
-
-
 </body>
 </html>
