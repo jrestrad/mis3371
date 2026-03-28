@@ -2,10 +2,10 @@
 <!--
 Program name: patient-form.html
 Author: Jacob Richard Estrada
-Date created: 02/26/2026
-Date last edited: 02/27/2026
-Version: 3.8
-Description: Homework 1 - Form for patient registration
+Date created: 03/20/2026
+Date last edited: 03/27/2026
+Version: 4.3
+Description: Homework 2 - Form for patient registration
 -->
 <html>
 <head>
@@ -27,44 +27,61 @@ Description: Homework 1 - Form for patient registration
   <!-- main form area-->
   <div id="main">
     <h2>Patient Registration Form</h2>
-    <form action="thankyou.html">
+    <form id="signup" action="thankyou.html">
       <table class="form-table">
       
-  <!--Patient Info -->
+  <!--Personal Info -->
         <tr class="section-row">
           <td colspan="6" class="section-title">Personal Information</td>
         </tr>
           <tr>
             <td width="150"><label for="firstName">First Name</label></td>
-            <td><input type="text" 
-                    id="firstName" 
-                    name="firstName" 
-                    maxlength="30" 
-                    required />
+          <td><input type="text" 
+            id="firstName" 
+            name="firstName" 
+            maxlength="30"
+            pattern="[A-Za-z'-]{1,30}"
+            title="1 to 30 letters, apostrophes, or dashes only"
+            required 
+            oninvalid="this.setCustomValidity('1 to 30 letters, apostrophes, or dashes only')"
+            oninput="this.setCustomValidity('')"     
+                  />
             </td>
-          <td class="center-cell" width="30"><label for="middleInitial">MI</label></td>
-              <td width="40">
-            <input type="text" 
+          <td class="center-cell" width="30"><label for="middleInitial">MI</label>
+          </td><td width="40">
+           <input type="text" 
                 id="middleInitial" 
                 name="middleInitial" 
-                maxlength="1" 
+                maxlength="1"
+                pattern="[A-Za-z]?"
+                title="One letter only"
                 class="mi-box"
-                />
+                oninvalid="this.setCustomValidity('One letter only.')"
+                oninput="this.setCustomValidity('')" />
           </td>
             <td width="180"><label for="lastName">Last Name</label></td>
-            <td width="200"><input type="text"  
+            <td width="200">
+                <input type="text"  
                     id="lastName"
                     name="lastName" 
                     maxlength="30" 
-                    required /></td>
+                    required
+                    pattern="[A-Za-z2-5'\- ]{2,30}"
+                    title="2 to 30 characters, Letters, apostrophes, dashes only"
+                    oninvalid="this.setCustomValidity('2 to 30 characters, Letters, apostrophes, dashes only')"
+                    oninput="this.setCustomValidity('')" 
+                    /></td>
           </tr>
         <tr>
           <td><label for="dob">Date of Birth</label></td>
           <td colspan="5">
-            <input type="text" 
-                id="dob" 
-                name="dob" 
-                placeholder="MM/DD/YYYY" />
+            <input <input type="date"
+                id="dob"
+                name="dob"
+                min="1906-01-01"
+                max="2026-12-31"
+                title="Date of birth: cannot be in the future or more than 120 years ago."
+                required />
           </td>
         </tr>
         <!--Contact info-->
@@ -76,19 +93,26 @@ Description: Homework 1 - Form for patient registration
         <td><label for="email">Email</label></td>
           <td colspan="5">
             <input type="email" 
-                id="email" 
-                name="email" 
-                placeholder="name@domain.tld" 
-                required />
+                id="email"
+                name="email"
+                placeholder="name@domain.tld"
+                required
+                title="Enter a valid email address in the format name@domain.tld."
+                oninvalid="this.setCustomValidity('Please enter a valid email address.')"
+                oninput="this.setCustomValidity('')" />
           </td>
         </tr>
         <tr>
           <td><label for="phone">Phone Number</label></td>
           <td colspan="5">
             <input type="tel" 
-                id="phone" 
-                name="phone" 
-                placeholder="###-###-####" />
+                id="phone"
+                name="phone"
+                placeholder="###-###-####"
+                pattern="\d{3}-\d{3}-\d{4}"
+                title="Phone number in the format ###-###-####."
+                oninvalid="this.setCustomValidity('Phone format: ###-###-####')"
+                oninput="this.setCustomValidity('')" />
           </td>
         </tr>
         <tr>
