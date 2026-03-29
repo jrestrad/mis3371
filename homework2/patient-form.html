@@ -13,7 +13,7 @@ Description: Homework 2 - Form for patient registration
     <title>Patient Registration - Gulfstone Medical</title>
     <link rel="stylesheet" href="style.css" />
 </head>
-
+ 
 <body>
   <!-- Banner withlogo and date-->
 <div id="banner">
@@ -27,7 +27,7 @@ Description: Homework 2 - Form for patient registration
   <!-- main form area-->
   <div id="main">
     <h2>Patient Registration Form</h2>
-    <form id="signup" action="thankyou.html">
+    <form id="patientForm" action="thankyou.html">
       <table class="form-table">
       
   <!--Personal Info -->
@@ -75,7 +75,7 @@ Description: Homework 2 - Form for patient registration
         <tr>
           <td><label for="dob">Date of Birth</label></td>
           <td colspan="5">
-            <input <input type="date"
+             <input type="date"
                 id="dob"
                 name="dob"
                 min="1906-01-01"
@@ -146,7 +146,7 @@ Description: Homework 2 - Form for patient registration
                   required
                   title="Street address, 2 to 30 characters. Required."
                   oninvalid="this.setCustomValidity('Address line 1 is required.')"
-                  oninput="this.setCustomValidity('')" />/>
+                  oninput="this.setCustomValidity('')" />
           </td>
         </tr>
         <tr>
@@ -268,17 +268,16 @@ Description: Homework 2 - Form for patient registration
           <td colspan="5"><input type="text" 
                 id="userId" 
                 name="userId" 
-                maxlength="20" 
+                maxlength="30" 
                 required
                 pattern="[A-Za-z][A-Za-z0-9_-]{4,29}"
                 title="User ID: 5 to 30 characters. Must start with a letter. Letters, numbers, underscore and dash allowed. No spaces."
                 onblur="lowerCaseId()"
                 oninvalid="this.setCustomValidity('User ID: 5-30 chars, start with a letter, no spaces.')"
                 oninput="this.setCustomValidity('')" />
-                              />
           </td>
         </tr>
-
+ 
         <tr>
           <td>
               <label for="pwd">Password</label>
@@ -291,9 +290,9 @@ Description: Homework 2 - Form for patient registration
                   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
                   title="Password: 8 to 30 characters. Must include uppercase, lowercase, number, and special character.."
                   oninvalid="this.setCustomValidity('Password needs uppercase, lowercase, number, and special character. 8-30 charactera.')"
-                  oninput="this.setCustomValidity('')" />/>
+                  oninput="this.setCustomValidity('')" />
           </td>
-
+ 
           <td>
               <label for="pwd2">Re-enter Password</label>
           </td>
@@ -307,10 +306,10 @@ Description: Homework 2 - Form for patient registration
                 <br>
                   <span id="pwd2_msg" 
                       style="font-size:13px;">
-                  </span>/>
+                  </span>
               </td>
             </tr>
-
+ 
         <!-- Health Quesiton -->
         <tr class="section-row">
           <td colspan="6" class="section-title">Health &amp; Insurance Questions</td>
@@ -344,7 +343,7 @@ Description: Homework 2 - Form for patient registration
                     value="no" /> No</label>
           </td>
         </tr>
-
+ 
         <tr>
           <td class="top"><label>Insurance?</label></td>
           <td colspan="5">
@@ -358,7 +357,7 @@ Description: Homework 2 - Form for patient registration
                     value="no" /> No</label>
           </td>
         </tr>
-
+ 
         <tr>
           <td class="top"><label for="health">Current Wellness</label></td>
           <td colspan="5">
@@ -366,10 +365,11 @@ Description: Homework 2 - Form for patient registration
               <span class="slider-num">1</span>
               <input type="range" id="health" name="health" min="1" max="10" value="5" class="wellness-slider" />
               <span class="slider-num">10</span>
+              &nbsp;&nbsp;Current value: <span id="healthDisplay">5</span>
           </div>
           </td>
         </tr>
-
+ 
         <tr>
           <td class="top"><label>Past Illnesses (check all that apply)</label></td>
           <td colspan="5">
@@ -380,14 +380,14 @@ Description: Homework 2 - Form for patient registration
             <label><input type="checkbox" name="illnesses" value="hypertension" /> Hypertension</label>
           </td>
         </tr>
-
+ 
         <tr>
           <td class="top"><label for="symptoms">Describe current symptoms</label></td>
           <td colspan="5">
             <textarea id="symptoms" name="symptoms" rows="3" placeholder="Describe symptoms here..."></textarea>
           </td>
         </tr>
-
+ 
         <tr>
           <td colspan="6" class="buttons">
             <input type="reset" 
@@ -395,7 +395,7 @@ Description: Homework 2 - Form for patient registration
                 class="btn secondary" />
               <input type="button" 
                   value="Review" 
-                  onclick="reviewForm()" 
+                  onclick="reviewData()" 
                   class="btn secondary" />
               <input type="submit" 
                   value="Submit" 
@@ -406,7 +406,7 @@ Description: Homework 2 - Form for patient registration
     </form>
       <div id="reviewBox"></div>
   </div>
-
+ 
   <!--Footer-->
  <div id="footer">
      <table width="100%">
@@ -417,14 +417,14 @@ Description: Homework 2 - Form for patient registration
         1234 Main St, Suite 200<br>
         Houston, TX 77030
       </td>
-
+ 
       <td align="center" width="100%">
         <button type="button" class="btn footer-btn"
           onclick="alert('Contact Us: support@gulfstonemedical.com')">
           Contact Us
         </button>
       </td>
-
+ 
       <td align="right" nowrap>
         <a href="https://x.com" target="_blank" rel="noopener">X</a> |
         <a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a>
@@ -440,3 +440,4 @@ Description: Homework 2 - Form for patient registration
     </script>
 </body>
 </html>
+ 
