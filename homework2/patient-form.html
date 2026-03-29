@@ -152,29 +152,40 @@ Description: Homework 2 - Form for patient registration
         <tr>
           <td><label for="addr2">Address Line 2</label></td>
           <td colspan="5">
-              <input type="text" 
-                  id="addr2" 
-                  name="addr2" 
-                  maxlength="30" />
-          </td>
+              <input type="text"
+                  id="addr2"
+                  name="addr2"
+                  minlength="2"
+                  maxlength="30"
+                  title="Apartment, suite, or unit, Not required. 2 to 30 characters." />
+      </td>
         </tr>
         <tr>
           <td>
               <label for="city">City</label>
           </td>
           <td>
-              <input type="text" 
-                  id="city" 
-                  name="city"
-                  maxlength="30" 
-                  required />
+              <input type="text"
+                id="city"
+                name="city"
+                minlength="2"
+                maxlength="30"
+                required
+                pattern="[A-Za-z .'-]{2,30}"
+                title="City name, 2 to 30 characters. Required."
+                oninvalid="this.setCustomValidity('City is required.')"
+                oninput="this.setCustomValidity('')" />
           </td>
          <td style="text-align:right;">
              <label for="state">State</label>
              
          </td>
            <td class="center-cell">
-            <select id="state" name="state" required>
+             <select 
+                 id="state" 
+                 name="state" 
+                 required
+                 title="Select your state. Required.">
                 <option value=""></option>
                 <option value="AL">Alabama</option>
                 <option value="AK">Alaska</option>
@@ -240,7 +251,11 @@ Description: Homework 2 - Form for patient registration
                   minlength="5" 
                   maxlength="10" 
                   placeholder="77002" 
-                  required />
+                  required
+                  pattern="\d{5}(-\d{4})?"
+                  title="ZIP code: 5 digits required."
+                  oninvalid="this.setCustomValidity('5 digit ZIP code required.')"
+                  oninput="this.setCustomValidity('')" />
           </td>
         </tr>
         <!--Account Questions-->
@@ -254,7 +269,13 @@ Description: Homework 2 - Form for patient registration
                 id="userId" 
                 name="userId" 
                 maxlength="20" 
-                required />
+                required
+                pattern="[A-Za-z][A-Za-z0-9_-]{4,29}"
+                title="User ID: 5 to 30 characters. Must start with a letter. Letters, numbers, underscore and dash allowed. No spaces."
+                onblur="lowerCaseId()"
+                oninvalid="this.setCustomValidity('User ID: 5-30 chars, start with a letter, no spaces.')"
+                oninput="this.setCustomValidity('')" />
+                              />
           </td>
         </tr>
 
@@ -266,7 +287,11 @@ Description: Homework 2 - Form for patient registration
               <input type="password" 
                   id="pwd" 
                   name="pwd" 
-                  required />
+                  required 
+                  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                  title="Password: 8 to 30 characters. Must include uppercase, lowercase, number, and special character.."
+                  oninvalid="this.setCustomValidity('Password needs uppercase, lowercase, number, and special character. 8-30 charactera.')"
+                  oninput="this.setCustomValidity('')" />/>
           </td>
 
           <td>
@@ -276,9 +301,15 @@ Description: Homework 2 - Form for patient registration
               <input type="password" 
                   id="pwd2" 
                   name="pwd2" 
-                  required />
-          </td>
-        </tr>
+                  required 
+                  title="Re-enter your password exactly as you typed it above."
+                  oninput="checkPasswords()" />
+                <br>
+                  <span id="pwd2_msg" 
+                      style="font-size:13px;">
+                  </span>/>
+              </td>
+            </tr>
 
         <!-- Health Quesiton -->
         <tr class="section-row">
@@ -359,12 +390,21 @@ Description: Homework 2 - Form for patient registration
 
         <tr>
           <td colspan="6" class="buttons">
-            <input type="reset" value="Clear and Start Over" class="btn secondary" />
-            <input type="submit" value="Submit" class="btn primary" />
+            <input type="reset" 
+                value="Clear and Start Over" 
+                class="btn secondary" />
+              <input type="button" 
+                  value="Review" 
+                  onclick="reviewForm()" 
+                  class="btn secondary" />
+              <input type="submit" 
+                  value="Submit" 
+                  class="btn primary" />
           </td>
         </tr>
       </table>
     </form>
+      <div id="reviewBox"></div>
   </div>
 
   <!--Footer-->
@@ -393,6 +433,7 @@ Description: Homework 2 - Form for patient registration
   </table>
 </div>
   <!--Script-->
+    <script src="patient-form2.js"></script>
     <script>
       document.getElementById("todayDate").innerHTML =
         new Date().toLocaleDateString("en-US", { weekday:"long", year:"numeric", month:"long", day:"numeric" });
