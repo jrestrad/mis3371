@@ -86,6 +86,7 @@ Description: Homework 2 - Form for patient registration
                 title="Date of birth: cannot be in the future or more than 120 years ago."
                 required 
                 onblur="checkDOB()"/>
+              <span id="dob_msg" style="font-size:13px;"></span>
           </td>
         </tr>
         <!--Contact info-->
@@ -118,6 +119,7 @@ Description: Homework 2 - Form for patient registration
                 oninvalid="this.setCustomValidity('Phone format: ###-###-####')"
                 oninput="this.setCustomValidity('')" 
                 onblur="checkPhone()"/>
+              <span id="phone_msg" style="font-size:13px;"></span>
           </td>
         </tr>
         <tr>
