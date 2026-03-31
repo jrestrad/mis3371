@@ -44,8 +44,9 @@ Description: Homework 2 - Form for patient registration
             title="1 to 30 letters, apostrophes, or dashes only"
             required 
             oninvalid="this.setCustomValidity('1 to 30 letters, apostrophes, or dashes only')"
-            oninput="this.setCustomValidity('')"     
-                  />
+            oninput="this.setCustomValidity('')"    
+            onblur="checkFirstName()" />
+            <span id="firstName_msg" style="font-size:13px;"></span>
             </td>
           <td class="center-cell" width="30"><label for="middleInitial">MI</label>
           </td><td width="40">
@@ -70,7 +71,9 @@ Description: Homework 2 - Form for patient registration
                     title="2 to 30 characters, Letters, apostrophes, dashes only"
                     oninvalid="this.setCustomValidity('2 to 30 characters, Letters, apostrophes, dashes only')"
                     oninput="this.setCustomValidity('')" 
-                    /></td>
+                    onblur="checkLastName()" />
+                    <span id="lastName_msg" style="font-size:13px;"></span>
+                    </td>
           </tr>
         <tr>
           <td><label for="dob">Date of Birth</label></td>
@@ -81,7 +84,8 @@ Description: Homework 2 - Form for patient registration
                 min="1906-01-01"
                 max="2026-12-31"
                 title="Date of birth: cannot be in the future or more than 120 years ago."
-                required />
+                required 
+                onblur="checkDOB()"/>
           </td>
         </tr>
         <!--Contact info-->
@@ -112,7 +116,8 @@ Description: Homework 2 - Form for patient registration
                 pattern="\d{3}-\d{3}-\d{4}"
                 title="Phone number in the format ###-###-####."
                 oninvalid="this.setCustomValidity('Phone format: ###-###-####')"
-                oninput="this.setCustomValidity('')" />
+                oninput="this.setCustomValidity('')" 
+                onblur="checkPhone()"/>
           </td>
         </tr>
         <tr>
@@ -290,7 +295,9 @@ Description: Homework 2 - Form for patient registration
                   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
                   title="Password: 8 to 30 characters. Must include uppercase, lowercase, number, and special character.."
                   oninvalid="this.setCustomValidity('Password needs uppercase, lowercase, number, and special character. 8-30 charactera.')"
-                  oninput="this.setCustomValidity('')" />
+                  oninput="this.setCustomValidity('')" 
+                  onblur="checkPassword()" />
+              <span id="pwd_msg" style="font-size:13px;"></span>/>
           </td>
  
           <td>
