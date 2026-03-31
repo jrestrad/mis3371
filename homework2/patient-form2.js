@@ -1,7 +1,7 @@
 /*
    Program name: patient-form2.js
    Author: Jacob Richard Estrada
-   Date created: 03/20/2026
+   Date created: 02/26/2026
    Date last edited: 03/30/2026
    Version: 6.0
    Description: Homework 2 - validation and review popup for patient form
