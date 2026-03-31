@@ -29,7 +29,7 @@ window.onload = function() {
     }
 }
  
-// check first name when user leaves field
+// check first name 
 function checkFirstName() {
     var x = document.getElementById("firstName").value;
     var msg = document.getElementById("firstName_msg");
@@ -41,7 +41,7 @@ function checkFirstName() {
     }
 }
  
-// check last name when user leaves field
+// check last name
 function checkLastName() {
     var x = document.getElementById("lastName").value;
     var msg = document.getElementById("lastName_msg");
@@ -53,7 +53,7 @@ function checkLastName() {
     }
 }
  
-// check dob when user leaves field
+// check dob
 function checkDOB() {
     var x = document.getElementById("dob").value;
     var msg = document.getElementById("dob_msg");
@@ -77,7 +77,7 @@ function checkDOB() {
     }
 }
  
-// check phone when user leaves field
+// check phone
 function checkPhone() {
     var x = document.getElementById("phone").value;
     var msg = document.getElementById("phone_msg");
@@ -91,7 +91,7 @@ function checkPhone() {
     }
 }
  
-// check password when user leaves field
+// check password
 function checkPassword() {
     var x = document.getElementById("pwd").value;
     var msg = document.getElementById("pwd_msg");
@@ -112,7 +112,7 @@ function lowerCaseId() {
     document.getElementById("userId").value = x.toLowerCase();
 }
  
-// check if passwords match while typing
+// password match
 function checkPasswords() {
     var p1 = document.getElementById("pwd").value;
     var p2 = document.getElementById("pwd2").value;
@@ -130,11 +130,10 @@ function checkPasswords() {
     }
 }
  
-// opens popup window with all the form data reviewed
+// opens popup 
 function reviewData() {
     var formcontents = document.getElementById("patientForm");
     var formoutput;
-    var datatype;
     var i;
     var firstName = document.getElementById("firstName").value;
     var lastName = document.getElementById("lastName").value;
@@ -148,10 +147,10 @@ function reviewData() {
     var pwd = document.getElementById("pwd").value;
     var pwd2 = document.getElementById("pwd2").value;
    
-    // truncate zip to 5
+    // truncate zip
     var zipShort = zip.substring(0, 5);
  
-    // check dob
+    // check dob 2
     var dobErr = "";
     if (dob == "") {
         dobErr = "ERROR: Required";
@@ -167,7 +166,7 @@ function reviewData() {
         }
     }
  
-    // check userid
+    // check userid 2
     var idErr = "";
     if (userId == "") {
         idErr = "ERROR: Required";
@@ -175,7 +174,7 @@ function reviewData() {
         idErr = "ERROR: 5-30 chars, start with a letter, no spaces";
     }
  
-    // check password
+    // check password 2
     var pwdErr = "";
     if (pwd == "") {
         pwdErr = "ERROR: Required";
@@ -189,7 +188,7 @@ function reviewData() {
         pwdErr = "ERROR: Password cannot contain your first name";
     }
  
-    // get illnesses that were checked
+    // get illnesses
     var illnessList = "";
     for (i = 0; i < formcontents.length; i++) {
         if (formcontents.elements[i].name == "illnesses" && formcontents.elements[i].checked) {
@@ -199,7 +198,7 @@ function reviewData() {
     }
     if (illnessList == "") { illnessList = "None"; }
    
-    // get radio button values
+    // get radio button
     var gender = "(not selected)";
     var vaccinated = "(not selected)";
     var insurance = "(not selected)";
