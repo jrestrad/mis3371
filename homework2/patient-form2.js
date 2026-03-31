@@ -1,4 +1,4 @@
-*
+/*
    Program name: patient-form2.js
    Author: Jacob Richard Estrada
    Date created: 03/20/2026
