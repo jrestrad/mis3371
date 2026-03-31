@@ -12,15 +12,18 @@ body {
   color: #333;
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
 }
-
+html, body {
+  height: 100%;
+}
 #banner {
   background-color: #0b2a4a;   
   color: white;
   padding: 15px;
   text-align: left;        
 }
-
 #banner h1 {
   margin: 0;
   font-family: "Trebuchet MS", Helvetica, sans-serif;
@@ -42,6 +45,7 @@ body {
   padding: 20px 30px;
   max-width: 900px;
   margin: 0 auto;
+  flex: 1;
 }
 
 .form-table {
@@ -136,13 +140,4 @@ input[type="radio"], input[type="checkbox"] {
 .top {
   vertical-align: top;
 }
-html, body {
-  height: 100%;
-}
-body {
-  display: flex;
-  flex-direction: column;
-}
-#main {
-  flex: 1;
-}
+
