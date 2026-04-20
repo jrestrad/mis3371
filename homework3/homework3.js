@@ -3,7 +3,7 @@
    Author: Jacob Richard Estrada
    Date created: 4/14/2026
    Date last edited: 
-   Version: 1.0
+   Version: 1.2
    Description: Homework 3 - Javascript to confirm and review popup 
 */
  
