@@ -107,7 +107,8 @@ Description: Homework 3 - Form for patient registration
                 required
                 title="Enter a valid email address in the format name@domain.tld."
                 oninvalid="this.setCustomValidity('Please enter a valid email address.')"
-                oninput="this.setCustomValidity('')" />
+                oninput="this.setCustomValidity('')" 
+                onblur="checkEmail()"/>
               <br>
               <span id="email_msg" style="font-size:13px;"></span>
           </td>
@@ -137,7 +138,8 @@ Description: Homework 3 - Form for patient registration
                 minlength="11"
                 maxlength="11" 
                 placeholder="***-**-****" 
-                title="Social Security number. Entry is hidden for security."/>
+                title="Social Security number. Entry is hidden for security."
+                onblur="checkSSN()"/>
               <br>
               <span id="ssn_msg" style="font-size:13px;"></span>
           </td>
@@ -160,7 +162,8 @@ Description: Homework 3 - Form for patient registration
                   required
                   title="Street address, 2 to 30 characters. Required."
                   oninvalid="this.setCustomValidity('Address line 1 is required.')"
-                  oninput="this.setCustomValidity('')" />
+                  oninput="this.setCustomValidity('')" 
+                  onblur="checkAddr1()"/>
               <span id="addr1_msg" style="font-size:13px;"></span>
           </td>
         </tr>
@@ -190,7 +193,9 @@ Description: Homework 3 - Form for patient registration
                 pattern="[A-Za-z .'-]{2,30}"
                 title="City name, 2 to 30 characters. Required."
                 oninvalid="this.setCustomValidity('City is required.')"
-                oninput="this.setCustomValidity('')" />
+                oninput="this.setCustomValidity('')" 
+                onblur="checkCity()"/>
+              
               <span id="addr2_msg" style="font-size:13px;"></span>
           </td>
          <td style="text-align:right;">
@@ -202,7 +207,8 @@ Description: Homework 3 - Form for patient registration
                  id="state" 
                  name="state" 
                  required
-                 title="Select your state. Required.">
+                 title="Select your state. Required."
+                 onchange="checkState()">
                 <option value=""></option>
                 <option value="AL">Alabama</option>
                 <option value="AK">Alaska</option>
@@ -255,9 +261,10 @@ Description: Homework 3 - Form for patient registration
                 <option value="WA">Washington</option>
                 <option value="WV">West Virginia</option>
                 <option value="WI">Wisconsin</option>
-                <option value="WY">Wyoming</option>
+                <option value="WY">Wyoming</option>  
             </select>
                <span id="state_msg" style="font-size:13px;"></span> 
+               
           </td>
           <td width="50">
               <label for="zip">ZIP</label>
@@ -273,7 +280,8 @@ Description: Homework 3 - Form for patient registration
                   pattern="\d{5}(-\d{4})?"
                   title="ZIP code: 5 digits required."
                   oninvalid="this.setCustomValidity('5 digit ZIP code required.')"
-                  oninput="this.setCustomValidity('')" />
+                  oninput="this.setCustomValidity('')" 
+                  onblur="checkZip()"/>
               <span id="zip_msg" style="font-size:13px;"></span>
           </td>
         </tr>
@@ -291,9 +299,12 @@ Description: Homework 3 - Form for patient registration
                 required
                 pattern="[A-Za-z][A-Za-z0-9_-]{4,19}"
                 title="User ID: 5 to 20 characters. Must start with a letter. Letters, numbers, underscore and dash allowed. No spaces."
-                onblur="lowerCaseId()"
+                onblur="lowerCaseId(); 
+                checkUserId()" 
+                oninput="checkUserId()"
                 oninvalid="this.setCustomValidity('User ID: 5-20 chars, start with a letter, no spaces.')"
-                oninput="this.setCustomValidity('')" />
+                oninput="this.setCustomValidity('')" 
+                />
               <span id="userId_msg" style="font-size:13px;"></span>
           </td>
         </tr>
@@ -457,10 +468,12 @@ Description: Homework 3 - Form for patient registration
                   id="validateBtn" 
                   value="Validate" 
                   onclick="validateAll()" 
-                  class="btn secondary" /
+                  class="btn secondary" />
             <input type="submit" 
                   value="Submit" 
                   class="btn primary" />
+              <br><br>
+            <span id="validateStatus" style="font-weight:bold;"></span>
           </td>
         </tr>
       </table>
