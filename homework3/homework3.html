@@ -59,6 +59,7 @@ Description: Homework 3 - Form for patient registration
                 class="mi-box"
                 oninvalid="this.setCustomValidity('One letter only.')"
                 oninput="this.setCustomValidity('')" />
+              <span id="middleInitial_msg" style="font-size:13px;"></span>
           </td>
             <td width="180"><label for="lastName">Last Name</label></td>
               <td width="180">
@@ -67,14 +68,14 @@ Description: Homework 3 - Form for patient registration
                     name="lastName" 
                     maxlength="30" 
                     required
-                    pattern="[A-Za-z2-5'\- ]{2,30}"
+                    pattern="[A-Za-z'\- ]{2,30}"
                     title="2 to 30 characters, Letters, apostrophes, dashes only"
                     oninvalid="this.setCustomValidity('2 to 30 characters, Letters, apostrophes, dashes only')"
                     oninput="this.setCustomValidity('')" 
                     onblur="checkLastName()" />
                 <br>
                     <span id="lastName_msg" style="font-size:13px;"></span>
-                    </td>
+                </td>
           </tr>
         <tr>
           <td><label for="dob">Date of Birth</label></td>
@@ -107,6 +108,8 @@ Description: Homework 3 - Form for patient registration
                 title="Enter a valid email address in the format name@domain.tld."
                 oninvalid="this.setCustomValidity('Please enter a valid email address.')"
                 oninput="this.setCustomValidity('')" />
+              <br>
+              <span id="email_msg" style="font-size:13px;"></span>
           </td>
         </tr>
         <tr>
@@ -135,6 +138,8 @@ Description: Homework 3 - Form for patient registration
                 maxlength="11" 
                 placeholder="***-**-****" 
                 title="Social Security number. Entry is hidden for security."/>
+              <br>
+              <span id="ssn_msg" style="font-size:13px;"></span>
           </td>
         </tr>
         
@@ -156,6 +161,8 @@ Description: Homework 3 - Form for patient registration
                   title="Street address, 2 to 30 characters. Required."
                   oninvalid="this.setCustomValidity('Address line 1 is required.')"
                   oninput="this.setCustomValidity('')" />
+              <br>
+              <span id="addr1_msg" style="font-size:13px;"></span>
           </td>
         </tr>
         <tr>
@@ -167,6 +174,8 @@ Description: Homework 3 - Form for patient registration
                   minlength="2"
                   maxlength="30"
                   title="Apartment, suite, or unit, Not required. 2 to 30 characters." />
+              <br>
+              <span id="addr1_msg" style="font-size:13px;"></span>
       </td>
         </tr>
         <tr>
@@ -184,6 +193,8 @@ Description: Homework 3 - Form for patient registration
                 title="City name, 2 to 30 characters. Required."
                 oninvalid="this.setCustomValidity('City is required.')"
                 oninput="this.setCustomValidity('')" />
+              <br>
+              <span id="addr2_msg" style="font-size:13px;"></span>
           </td>
          <td style="text-align:right;">
              <label for="state">State</label>
@@ -249,6 +260,8 @@ Description: Homework 3 - Form for patient registration
                 <option value="WI">Wisconsin</option>
                 <option value="WY">Wyoming</option>
             </select>
+               <br>
+               <span id="state_msg" style="font-size:13px;"></span> a
           </td>
           <td width="50">
               <label for="zip">ZIP</label>
@@ -265,6 +278,8 @@ Description: Homework 3 - Form for patient registration
                   title="ZIP code: 5 digits required."
                   oninvalid="this.setCustomValidity('5 digit ZIP code required.')"
                   oninput="this.setCustomValidity('')" />
+              <br>
+              <span id="zip_msg" style="font-size:13px;"></span>
           </td>
         </tr>
         <!--Account Questions-->
@@ -277,13 +292,15 @@ Description: Homework 3 - Form for patient registration
           <td colspan="5"><input type="text" 
                 id="userId" 
                 name="userId" 
-                maxlength="30" 
+                maxlength="20" 
                 required
-                pattern="[A-Za-z][A-Za-z0-9_-]{4,29}"
-                title="User ID: 5 to 30 characters. Must start with a letter. Letters, numbers, underscore and dash allowed. No spaces."
+                pattern="[A-Za-z][A-Za-z0-9_-]{4,19}"
+                title="User ID: 5 to 20 characters. Must start with a letter. Letters, numbers, underscore and dash allowed. No spaces."
                 onblur="lowerCaseId()"
-                oninvalid="this.setCustomValidity('User ID: 5-30 chars, start with a letter, no spaces.')"
+                oninvalid="this.setCustomValidity('User ID: 5-20 chars, start with a letter, no spaces.')"
                 oninput="this.setCustomValidity('')" />
+              <br>
+              <span id="userId_msg" style="font-size:13px;"></span>
           </td>
         </tr>
  
@@ -297,8 +314,8 @@ Description: Homework 3 - Form for patient registration
                   name="pwd" 
                   required 
                   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
-                  title="Password: 8 to 30 characters. Must include uppercase, lowercase, number, and special character.."
-                  oninvalid="this.setCustomValidity('Password needs uppercase, lowercase, number, and special character. 8-30 charactera.')"
+                  title="Password: 8 to 30 characters. Must include uppercase, lowercase, number, and number."
+                  oninvalid="this.setCustomValidity('Password needs uppercase, lowercase, and number. 8-30 characters.')"
                   oninput="this.setCustomValidity('')" 
                   onblur="checkPassword()" />
               <span id="pwd_msg" style="font-size:13px;"></span>
@@ -315,9 +332,7 @@ Description: Homework 3 - Form for patient registration
                   title="Re-enter your password exactly as you typed it before"
                   oninput="checkPasswords()" />
                 <br>
-                  <span id="pwd2_msg" 
-                      style="font-size:13px;">
-                  </span>
+                  <span id="pwd2_msg" style="font-size:13px;"></span>
               </td>
             </tr>
  
@@ -444,7 +459,7 @@ Description: Homework 3 - Form for patient registration
   </table>
 </div>
   <!--Script-->
-    <script src="patient-form3.js"></script>
+    <script src="homework3.js"></script>
     <script>
       document.getElementById("todayDate").innerHTML =
         new Date().toLocaleDateString("en-US", { weekday:"long", year:"numeric", month:"long", day:"numeric" });
