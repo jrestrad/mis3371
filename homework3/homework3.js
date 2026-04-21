@@ -330,7 +330,8 @@ function checkPasswords() {
     var p2 = document.getElementById("pwd2").value;
     var msg = document.getElementById("pwd2_msg");
     if (p2 == "") {
-        msg.innerHTML = "";
+        msg.innerHTML = "Please re-enter your password";
+        msg.style.color = "red";
         return false;
     }
     if (p1 != p2) {
