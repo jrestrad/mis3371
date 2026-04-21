@@ -368,13 +368,19 @@ Description: Homework 2 - Form for patient registration
                     value="no" /> No</label>
           </td>
         </tr>
- 
-        <tr>
+   <tr>
           <td class="top"><label for="health">Current Wellness</label></td>
           <td colspan="5">
             <div class="slider-row">
               <span class="slider-num">1</span>
-              <input type="range" id="health" name="health" min="1" max="10" value="5" class="wellness-slider" />
+              <input 
+                  type="range" 
+                  id="health" 
+                  name="health" 
+                  min="1" 
+                  max="10" 
+                  value="5" 
+                  class="wellness-slider"/>
               <span class="slider-num">10</span>
               &nbsp;&nbsp;Current value: <span id="healthDisplay">5</span>
           </div>
@@ -384,18 +390,48 @@ Description: Homework 2 - Form for patient registration
         <tr>
           <td class="top"><label>Past Illnesses (check all that apply)</label></td>
           <td colspan="5">
-            <label><input type="checkbox" name="illnesses" value="flu" /> Seasonal Flu</label>
-            <label><input type="checkbox" name="illnesses" value="covid19" /> Covid-19</label>
-            <label><input type="checkbox" name="illnesses" value="asthma" /> Asthma</label>
-            <label><input type="checkbox" name="illnesses" value="diabetes" /> Diabetes</label>
-            <label><input type="checkbox" name="illnesses" value="hypertension" /> Hypertension</label>
+            <label>
+                <input 
+                    type="checkbox" 
+                    name="illnesses" 
+                    value="flu" /> Seasonal Flu
+            </label>
+            <label>
+                <input 
+                    type="checkbox" 
+                    name="illnesses" 
+                    value="covid19" /> Covid-19
+            </label>
+            <label>
+                <input 
+                    type="checkbox" 
+                    name="illnesses" 
+                    value="asthma" /> Asthma
+            </label>
+            <label>
+                <input 
+                    type="checkbox" 
+                    name="illnesses" 
+                    value="diabetes" /> Diabetes
+            </label>
+            <label>
+                <input 
+                    type="checkbox" 
+                    name="illnesses" 
+                    value="hypertension" /> Hypertension
+            </label>
           </td>
         </tr>
  
         <tr>
           <td class="top"><label for="symptoms">Describe current symptoms</label></td>
           <td colspan="5">
-            <textarea id="symptoms" name="symptoms" rows="3" placeholder="Describe symptoms here..."></textarea>
+            <textarea 
+                id="symptoms" 
+                name="symptoms" 
+                rows="3" 
+                placeholder="Describe symptoms here...">
+                </textarea>
           </td>
         </tr>
  
