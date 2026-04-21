@@ -297,8 +297,8 @@ Description: Homework 2 - Form for patient registration
                   name="pwd" 
                   required 
                   pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
-                  title="Password: 8 to 30 characters. Must include uppercase, lowercase, number, and special character.."
-                  oninvalid="this.setCustomValidity('Password needs uppercase, lowercase, number, and special character. 8-30 charactera.')"
+                  title="Password: 8 to 30 characters. Must include uppercase, lowercase, and number"
+                  oninvalid="this.setCustomValidity('Password needs uppercase, lowercase, and number. 8-30 characters.')"
                   oninput="this.setCustomValidity('')" 
                   onblur="checkPassword()" />
               <span id="pwd_msg" style="font-size:13px;"></span>
@@ -423,8 +423,7 @@ Description: Homework 2 - Form for patient registration
             <textarea id="symptoms" 
                 name="symptoms" 
                 rows="3" 
-                placeholder="Describe symptoms here...">
-                </textarea>
+                placeholder="Describe symptoms here..."></textarea>
           </td>
         </tr>
  
