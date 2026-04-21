@@ -482,14 +482,29 @@ function reviewData() {
     formoutput = formoutput + "<tr><td class='lbl'>Date of Birth</td><td>" + (dob != "" ? dob : "(not entered)") + "</td>";
     formoutput = formoutput + "<td class='" + (dobErr == "" ? "pass" : "err") + "'>" + (dobErr == "" ? "pass" : dobErr) + "</td></tr>";
  
-    // contact
+   // contact
     formoutput = formoutput + "<tr><td colspan='3' class='sec'>Contact &amp; Verification</td></tr>";
     formoutput = formoutput + "<tr><td class='lbl'>Email</td><td>" + (email != "" ? email : "(not entered)") + "</td>";
     formoutput = formoutput + "<td class='" + (email != "" ? "pass" : "err") + "'>" + (email != "" ? "pass" : "ERROR: Required") + "</td></tr>";
-    formoutput = formoutput + "<tr><td class='lbl'>Phone</td><td>" + document.getElementById("phone").value + "</td>";
-    formoutput = formoutput + "<td class='pass'>pass</td></tr>";
-    formoutput = formoutput + "<tr><td class='lbl'>SSN</td><td>***-**-****</td>";
-    formoutput = formoutput + "<td class='pass'>pass</td></tr>";
+
+    // check phone 2
+    var phoneVal = document.getElementById("phone").value;
+    var phoneErr = "";
+    if (phoneVal != "" && !/^\d{3}-\d{3}-\d{4}$/.test(phoneVal)) {
+        phoneErr = "ERROR: Format must be ###-###-####";
+    }
+    formoutput = formoutput + "<tr><td class='lbl'>Phone</td><td>" + (phoneVal != "" ? phoneVal : "(not entered)") + "</td>";
+    formoutput = formoutput + "<td class='" + (phoneErr == "" ? "pass" : "err") + "'>" + (phoneErr == "" ? "pass" : phoneErr) + "</td></tr>";
+
+    // check ssn 2
+    var ssnVal = document.getElementById("ssn").value;
+    var ssnErr = "";
+    if (ssnVal == "") {
+        ssnErr = "ERROR: Required";
+    } else if (!/^\d{3}-\d{2}-\d{4}$/.test(ssnVal)) {
+        ssnErr = "ERROR: Must be 9 digits";}
+    formoutput = formoutput + "<tr><td class='lbl'>SSN</td><td>" + (ssnVal != "" ? "***-**-****" : "(not entered)") + "</td>";
+    formoutput = formoutput + "<td class='" + (ssnErr == "" ? "pass" : "err") + "'>" + (ssnErr == "" ? "pass" : ssnErr) + "</td></tr>";
  
     // address
     formoutput = formoutput + "<tr><td colspan='3' class='sec'>Address</td></tr>";
