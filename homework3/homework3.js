@@ -3,7 +3,7 @@
    Author: Jacob Richard Estrada
    Date created: 4/14/2026
    Date last edited: 
-   Version: 1.2
+   Version: 2.3
    Description: Homework 3 - Javascript to confirm and review popup 
 */
  
@@ -37,7 +37,7 @@ function checkFirstName() {
         msg.innerHTML = "First name is required";
         msg.style.color = "red";
         return false;
-       
+    }
      if (!/^[A-Za-z'\- ]{1,30}$/.test(x)) {
         msg.innerHTML = "Letters, apostrophes, dashes only";
         msg.style.color = "red";
