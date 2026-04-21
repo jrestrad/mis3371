@@ -449,11 +449,16 @@ Description: Homework 3 - Form for patient registration
             <input type="reset" 
                 value="Clear and Start Over" 
                 class="btn secondary" />
-              <input type="button" 
+            <input type="button" 
                   value="Review" 
                   onclick="reviewData()" 
                   class="btn secondary" />
-              <input type="submit" 
+            <input type="button" 
+                  id="validateBtn" 
+                  value="Validate" 
+                  onclick="validateAll()" 
+                  class="btn secondary" /
+            <input type="submit" 
                   value="Submit" 
                   class="btn primary" />
           </td>
