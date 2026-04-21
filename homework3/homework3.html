@@ -175,8 +175,9 @@ Description: Homework 3 - Form for patient registration
                   name="addr2"
                   minlength="2"
                   maxlength="30"
-                  title="Apartment, suite, or unit, Not required. 2 to 30 characters." />
-              <span id="addr1_msg" style="font-size:13px;"></span>
+                  title="Apartment, suite, or unit, Not required. 2 to 30 characters." 
+                  onblur="checkAddr2()"/>
+              <span id="addr2_msg" style="font-size:13px;"></span>
       </td>
         </tr>
         <tr>
@@ -196,7 +197,7 @@ Description: Homework 3 - Form for patient registration
                 oninput="this.setCustomValidity('')" 
                 onblur="checkCity()"/>
               
-              <span id="addr2_msg" style="font-size:13px;"></span>
+              <span id="city_msg" style="font-size:13px;"></span>
           </td>
          <td style="text-align:right;">
              <label for="state">State</label>
@@ -302,8 +303,7 @@ Description: Homework 3 - Form for patient registration
                 onblur="lowerCaseId(); 
                 checkUserId()" 
                 oninput="checkUserId()"
-                oninvalid="this.setCustomValidity('User ID: 5-20 chars, start with a letter, no spaces.')"
-                oninput="this.setCustomValidity('')" 
+                oninvalid="this.setCustomValidity('User ID: 5-20 chars, start with a letter, no spaces.')" 
                 />
               <br>
               <span id="userId_msg" style="font-size:13px;"></span>
@@ -471,8 +471,10 @@ Description: Homework 3 - Form for patient registration
                   onclick="validateAll()" 
                   class="btn secondary" />
             <input type="submit" 
+                  id="submitBtn"
                   value="Submit" 
-                  class="btn primary" />
+                  class="btn primary"
+                  style="display:none;" />
               <br><br>
             <span id="validateStatus" style="font-weight:bold;"></span>
           </td>
