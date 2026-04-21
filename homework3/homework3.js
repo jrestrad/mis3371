@@ -519,7 +519,7 @@ function reviewData() {
  
     formoutput = formoutput + "</table>";
     formoutput = formoutput + "<div class='btns'>";
-    formoutput = formoutput + "<button class='sbtn' onclick='window.opener.document.getElementById(\"patientForm\").submit(); window.close();'>SUBMIT</button>";
+    formoutput = formoutput + "<button class='cbtn' onclick='window.close();'>Close</button>";
     formoutput = formoutput + "<button class='cbtn' onclick='window.close();'>Go Back and Edit</button>";
     formoutput = formoutput + "</div>";
     formoutput = formoutput + "</body></html>";
