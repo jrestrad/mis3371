@@ -131,7 +131,7 @@ Description: Homework 3 - Form for patient registration
         <tr>
           <td><label for="ssn">Social Security</label></td>
           <td colspan="5">
-            <input type="password" 
+            <input type="text" 
                 id="ssn" 
                 name="ssn" 
                 pattern="\d{3}-\d{2}-\d{4}"
@@ -139,6 +139,7 @@ Description: Homework 3 - Form for patient registration
                 maxlength="11" 
                 placeholder="***-**-****" 
                 title="Social Security number. Entry is hidden for security."
+                oninput="formatSSN()"
                 onblur="checkSSN()"/>
               <br>
               <span id="ssn_msg" style="font-size:13px;"></span>
