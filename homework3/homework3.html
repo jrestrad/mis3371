@@ -279,7 +279,7 @@ Description: Homework 3 - Form for patient registration
                   maxlength="10" 
                   placeholder="77002" 
                   required
-                  pattern="\d{5}(-\d{4})?"
+                  pattern="\d{5}"
                   title="ZIP code: 5 digits required."
                   oninvalid="this.setCustomValidity('5 digit ZIP code required.')"
                   oninput="this.setCustomValidity('')" 
@@ -301,8 +301,7 @@ Description: Homework 3 - Form for patient registration
                 required
                 pattern="[A-Za-z][A-Za-z0-9_-]{4,19}"
                 title="User ID: 5 to 20 characters. Must start with a letter. Letters, numbers, underscore and dash allowed. No spaces."
-                onblur="lowerCaseId(); 
-                checkUserId()" 
+                onblur="lowerCaseId(); checkUserId()" 
                 oninput="checkUserId()"
                 oninvalid="this.setCustomValidity('User ID: 5-20 chars, start with a letter, no spaces.')" 
                 />
