@@ -88,12 +88,12 @@ input[type="radio"], input[type="checkbox"] {
   width: auto;
 }
 
-.btn.primary {
+.btn1 {
   background-color: #2d6f9f;
   color: white;
 }
 
-.btn.secondary {
+.btn2 {
   background-color: #ccc;
   color: black;
 }
