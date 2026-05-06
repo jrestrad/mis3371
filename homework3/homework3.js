@@ -415,8 +415,8 @@ function reviewData() {
     var idErr = "";
     if (userId == "") {
         idErr = "ERROR: Required";
-    } else if (!/^[a-zA-Z][a-zA-Z0-9_\-]{4,29}$/.test(userId)) {
-        idErr = "ERROR: 5-30 chars, start with a letter, no spaces";
+    } else if (!/^[a-zA-Z][a-zA-Z0-9_\-]{4,19}$/.test(userId)) {
+        idErr = "ERROR: 5-20 chars, start with a letter, no spaces";
     }
  
     // check password 2
@@ -455,7 +455,7 @@ function reviewData() {
         }
     }
  
-    // popup html 
+    // popup html and css
     formoutput = "<html><head><title>Please Review</title>";
     formoutput = formoutput + "<style>";
     formoutput = formoutput + "body { font-family: Arial, Helvetica, sans-serif; background: white; margin: 20px; }";
