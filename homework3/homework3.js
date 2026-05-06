@@ -29,7 +29,7 @@ window.onload = function() {
     }
 }
  
-// check first name regex helped with ai
+// check first name
 function checkFirstName() {
     var x = document.getElementById("firstName").value;
     var msg = document.getElementById("firstName_msg");
@@ -62,7 +62,7 @@ function checkFirstName() {
     msg.innerHTML = "";
     return true;
 }
-// check last name regex helped with ai
+// check last name
 function checkLastName() {
     var x = document.getElementById("lastName").value;
     var msg = document.getElementById("lastName_msg");
@@ -106,7 +106,7 @@ function checkDOB() {
     msg.innerHTML = "";
     return true;
 }
-   //check email: regex helped with ai
+   //check email
  function checkEmail() {
     var box = document.getElementById("email");
     box.value = box.value.toLowerCase();
@@ -125,7 +125,7 @@ function checkDOB() {
     msg.innerHTML = "";
     return true;
 }
-// check phone regex helped with ai
+// check phone 
 function checkPhone() {
     var x = document.getElementById("phone").value;
     var msg = document.getElementById("phone_msg");
@@ -153,7 +153,7 @@ function checkPhone() {
     }
     box.value = out;
 }
-//ssn format and check regex helped with ai 
+//ssn format
 function checkSSN() {
     var x = document.getElementById("ssn").value;
     var msg = document.getElementById("ssn_msg");
@@ -249,7 +249,7 @@ function checkZip() {
     msg.innerHTML = "";
     return true;
 }  
-   //check user id regex helped with ai
+   //check user id 
    function checkUserId() {
     var x = document.getElementById("userId").value;
     var msg = document.getElementById("userId_msg");
