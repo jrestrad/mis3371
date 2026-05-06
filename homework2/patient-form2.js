@@ -253,3 +253,4 @@ formoutput = formoutput + "</body></html>";
 var popup = window.open("", "ReviewWindow", "width=700,height=600,scrollbars=yes");
 popup.document.write(formoutput);
 popup.document.close();
+}
