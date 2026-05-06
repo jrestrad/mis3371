@@ -467,7 +467,6 @@ function reviewData() {
     formoutput = formoutput + ".err { color: red; }";
     formoutput = formoutput + ".btns { text-align: center; margin-top: 20px; }";
     formoutput = formoutput + "button { padding: 10px 20px; margin: 5px; font-weight: bold; border: none; cursor: pointer; }";
-    formoutput = formoutput + ".sbtn { background-color: #0066cc; color: white; }";
     formoutput = formoutput + ".cbtn { background-color: #ccc; color: black; }";
     formoutput = formoutput + "</style></head><body>";
     formoutput = formoutput + "<h2>PLEASE REVIEW THIS INFORMATION</h2>";
