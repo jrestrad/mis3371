@@ -211,46 +211,37 @@ function reviewData() {
     }
  
    // popup review window
-formoutput = "<html><head><title>Review Form</title></head><body>";
-formoutput = formoutput + "<h2>PLEASE REVIEW THIS INFORMATION</h2>";
+    formoutput = "<html><head><title>Review Form</title></head><body>";
+    formoutput = formoutput + "<h2>PLEASE REVIEW THIS INFORMATION</h2>";
+    formoutput = formoutput + "<table border='1' cellpadding='6' cellspacing='0'>";
+    formoutput = formoutput + "<tr><th>Field</th><th>Value</th></tr>";
 
-formoutput = formoutput + "<table border='1' cellpadding='6' cellspacing='0'>";
-formoutput = formoutput + "<tr><th>Field</th><th>Value</th></tr>";
+    formoutput = formoutput + "<tr><td>Name</td><td>" + firstName + " " + document.getElementById("middleInitial").value + " " + lastName + "</td></tr>";
+    formoutput = formoutput + "<tr><td>Date of Birth</td><td>" + dob + "</td></tr>";
+    formoutput = formoutput + "<tr><td>Email</td><td>" + email + "</td></tr>";
+    formoutput = formoutput + "<tr><td>Phone</td><td>" + document.getElementById("phone").value + "</td></tr>";
+    formoutput = formoutput + "<tr><td>SSN</td><td>***-**-****</td></tr>";
 
-formoutput = formoutput + "<tr><td>Name</td><td>" + firstName + " " +
-  document.getElementById("middleInitial").value + " " + lastName + "</td></tr>";
+    formoutput = formoutput + "<tr><td>Address</td><td>" + addr1 + "<br>";
+    if (document.getElementById("addr2").value != "") {
+        formoutput = formoutput + document.getElementById("addr2").value + "<br>";
+    }
+    formoutput = formoutput + city + ", " + state + " " + zipShort + "</td></tr>";
 
-formoutput = formoutput + "<tr><td>Date of Birth</td><td>" + dob + "</td></tr>";
-formoutput = formoutput + "<tr><td>Email</td><td>" + email + "</td></tr>";
-formoutput = formoutput + "<tr><td>Phone</td><td>" + document.getElementById("phone").value + "</td></tr>";
-formoutput = formoutput + "<tr><td>SSN</td><td>***-**-****</td></tr>";
+    formoutput = formoutput + "<tr><td>User ID</td><td>" + userId + "</td></tr>";
+    formoutput = formoutput + "<tr><td>Password</td><td>********</td></tr>";
+    formoutput = formoutput + "<tr><td>Gender</td><td>" + gender + "</td></tr>";
+    formoutput = formoutput + "<tr><td>Vaccinated</td><td>" + vaccinated + "</td></tr>";
+    formoutput = formoutput + "<tr><td>Insurance</td><td>" + insurance + "</td></tr>";
+    formoutput = formoutput + "<tr><td>Wellness Level</td><td>" + document.getElementById("health").value + " / 10</td></tr>";
+    formoutput = formoutput + "<tr><td>Past Illnesses</td><td>" + illnessList + "</td></tr>";
+    formoutput = formoutput + "<tr><td>Symptoms</td><td>" + document.getElementById("symptoms").value + "</td></tr>";
 
-formoutput = formoutput + "<tr><td>Address</td><td>" + addr1 + "<br>";
-if (document.getElementById("addr2").value != "") {
-  formoutput = formoutput + document.getElementById("addr2").value + "<br>";
-}
-formoutput = formoutput + city + ", " + state + " " + zipShort + "</td></tr>";
+    formoutput = formoutput + "</table><br>";
+    formoutput = formoutput + "<button onclick='window.close()'>Go Back and Edit</button>";
+    formoutput = formoutput + "</body></html>";
 
-formoutput = formoutput + "<tr><td>User ID</td><td>" + userId + "</td></tr>";
-formoutput = formoutput + "<tr><td>Password</td><td>********</td></tr>";
-
-formoutput = formoutput + "<tr><td>Gender</td><td>" + gender + "</td></tr>";
-formoutput = formoutput + "<tr><td>Vaccinated</td><td>" + vaccinated + "</td></tr>";
-formoutput = formoutput + "<tr><td>Insurance</td><td>" + insurance + "</td></tr>";
-formoutput = formoutput + "<tr><td>Wellness Level</td><td>" +
-  document.getElementById("health").value + " / 10</td></tr>";
-
-formoutput = formoutput + "<tr><td>Past Illnesses</td><td>" + illnessList + "</td></tr>";
-formoutput = formoutput + "<tr><td>Symptoms</td><td>" +
-  document.getElementById("symptoms").value + "</td></tr>";
-
-formoutput = formoutput + "</table><br>";
-
-formoutput = formoutput + "<button onclick='window.close()'>Go Back and Edit</button>";
-
-formoutput = formoutput + "</body></html>";
-
-var popup = window.open("", "ReviewWindow", "width=700,height=600,scrollbars=yes");
-popup.document.write(formoutput);
-popup.document.close();
+    var popup = window.open("", "ReviewWindow", "width=700,height=600,scrollbars=yes");
+    popup.document.write(formoutput);
+    popup.document.close();
 }
