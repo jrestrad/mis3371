@@ -669,18 +669,6 @@ function checkCookie() {
         welcome.innerHTML = "Hello, new user! Welcome to Gulfstone Medical.";
     }
 }
-// start over as new user
-function startAsNewUser() {
-    deleteCookie("fname");
-    clearStorage();
-    document.getElementById("patientForm").reset();
-    document.getElementById("welcomeMsg").innerHTML =
-        "Hello, new user! Welcome to Gulfstone Medical.";
-    document.getElementById("notMeWrap").style.display = "none";
-    document.getElementById("rememberMe").checked = true;
-    alert("Form cleared. You can start over as a new user.");
-}
-
 // remember me checkbox
 function rememberToggle() {
     var rm = document.getElementById("rememberMe");
