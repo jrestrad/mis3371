@@ -5,8 +5,9 @@
    Date last edited: 4/21/2026
    Version: 4.2
    Description: Homework 4 - Javascript to confirm and review popup 
+AI Credits:
+- Used AI assistance: Claude/ChatGPT for some regex checking, window popup form contatenation and Fetch/cookie examples on 5/4/2026.
 */
- 
 // set dob
 window.onload = function() {
     var today = new Date();
@@ -20,13 +21,20 @@ window.onload = function() {
     document.getElementById("dob").max = maxDate;
     document.getElementById("dob").min = minDate;
  
-    // slider live value 
+    // slider live value, 
     var slider = document.getElementById("health");
     var output = document.getElementById("healthDisplay");
     output.innerHTML = slider.value;
     slider.oninput = function() {
         output.innerHTML = this.value;
     }
+   
+   loadStates();
+   startSessionTimer();
+   checkCookie();
+   var form = document.getElementById("patientForm");
+    form.addEventListener("change", saveAllFields);
+    form.addEventListener("blur", saveAllFields, true);
 }
  
 // check first name
@@ -541,4 +549,216 @@ function reviewData() {
     var popup = window.open("", "ReviewWindow", "width=740,height=640,scrollbars=yes,resizable=yes");
     popup.document.write(formoutput);
     popup.document.close();
+}
+
+//fetch api
+async function loadStates() {
+   try { var resp = await fetch("states.xml");
+   if (!resp.ok) {
+   throw new Error("Could not load states.xml");
+   }
+
+   var text = await resp.text();
+   var parser = new DOMParser();
+   var xml = parser.parseFromString(text, "text/xml");
+   var nodes = xml.getElementsByTagName("state");
+   var sel = document.getElementById("state");
+
+   var html = "<option value=''></option>";
+
+   for (var i = 0; i < nodes.length; i++) {
+       var code = nodes[i].getAttribute("code");
+      var name = nodes[i].textContent;
+      html = html + "<option value='" + code + "'>" + name + "</option>";
+      }
+
+   sel.innerHTML = html;
+
+// restore saved state after the options load
+   var savedState = localStorage.getItem("state");
+   if (savedState) {
+   sel.value = savedState;
+   }
+
+} catch (err) {
+   console.log("Fetch error: " + err.message);
+   document.getElementById("state").innerHTML =
+      "<option value=''>Could not load states</option>";
+    }
+}
+// session timer
+var sessionSeconds = 0;
+
+function startSessionTimer() {
+    setInterval(function() {
+        var mins;
+        var secs;
+
+        sessionSeconds = sessionSeconds + 1;
+        mins = Math.floor(sessionSeconds / 60);
+        secs = sessionSeconds % 60;
+
+        if (secs < 10) {
+            secs = "0" + secs;
+        }
+
+        document.getElementById("sessionTimer").innerHTML = "Session: " + mins + ":" + secs;
+    }, 1000);
+}
+
+// make user fill name first
+function enforceOrder() {
+    var first = document.getElementById("firstName").value;
+    var last = document.getElementById("lastName").value;
+
+    if (first == "" || last == "") {
+        alert("Please enter your first and last name before creating a User ID.");
+        document.getElementById("firstName").focus();
+        return false;
+    }
+
+    return true;
+}
+
+// set cookie
+function setCookie(cname, cvalue, hours) {
+    var d = new Date();
+    var expires;
+
+    d.setTime(d.getTime() + (hours * 60 * 60 * 1000));
+    expires = "expires=" + d.toUTCString();
+
+    document.cookie = cname + "=" + encodeURIComponent(cvalue) + ";" + expires + ";path=/";
+}
+
+// get cookie
+function getCookie(cname) {
+    var name = cname + "=";
+    var cookies = document.cookie.split(";");
+
+    for (var i = 0; i < cookies.length; i++) {
+        var c = cookies[i];
+
+        while (c.charAt(0) == " ") {
+            c = c.substring(1);
+        }
+
+        if (c.indexOf(name) == 0) {
+            return decodeURIComponent(c.substring(name.length, c.length));
+        }
+    }
+
+    return "";
+}
+
+// delete cookie
+function deleteCookie(cname) {
+    document.cookie = cname + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+}
+
+// check if returning user
+function checkCookie() {
+    var fname = getCookie("fname");
+
+    if (fname != "") {
+        document.getElementById("welcomeMsg").innerHTML = "Welcome back, " + fname + "!";
+        document.getElementById("notMeLabel").innerHTML = " Not " + fname + "? Click here to start as a NEW USER.";
+        document.getElementById("notMeWrap").style.display = "block";
+        document.getElementById("firstName").value = fname;
+
+        loadFromStorage();
+    }
+    else {
+        document.getElementById("welcomeMsg").innerHTML = "Hello, new user! Welcome to Gulfstone Medical.";
+        document.getElementById("notMeWrap").style.display = "none";
+    }
+}
+
+// start over as new user
+function startAsNewUser() {
+    deleteCookie("fname");
+    clearStorage();
+
+    document.getElementById("patientForm").reset();
+
+    if (document.getElementById("health")) {
+        document.getElementById("healthDisplay").innerHTML = document.getElementById("health").value;
+    }
+
+    document.getElementById("welcomeMsg").innerHTML = "Hello, new user! Welcome to Gulfstone Medical.";
+    document.getElementById("notMeWrap").style.display = "none";
+    document.getElementById("rememberMe").checked = true;
+
+    alert("Form cleared. You can start over as a new user.");
+}
+
+// remember me checkbox
+function rememberToggle() {
+    var box = document.getElementById("rememberMe");
+    var fname = document.getElementById("firstName").value;
+
+    if (box.checked) {
+        if (fname != "") {
+            setCookie("fname", fname, 48);
+        }
+        saveAllFields();
+    }
+    else {
+        deleteCookie("fname");
+        clearStorage();
+    }
+}
+
+// check remember me
+function isRememberOn() {
+    if (document.getElementById("rememberMe") == null) {
+        return false;
+    }
+
+    if (document.getElementById("rememberMe").checked) {
+        return true;
+    }
+
+    return false;
+}
+
+// save form data
+function saveAllFields() {
+    if (!isRememberOn()) {
+        return;
+    }
+
+    for (var i = 0; i < saveFields.length; i++) {
+        var field = document.getElementById(saveFields[i]);
+
+        if (field) {
+            localStorage.setItem(saveFields[i], field.value);
+        }
+    }
+
+    var fname = document.getElementById("firstName").value;
+
+    if (fname != "") {
+        setCookie("fname", fname, 48);
+        document.getElementById("welcomeMsg").innerHTML = "Welcome back, " + fname + "!";
+    }
+}
+
+// load saved form data
+function loadFromStorage() {
+    for (var i = 0; i < saveFields.length; i++) {
+        var saved = localStorage.getItem(saveFields[i]);
+        var field = document.getElementById(saveFields[i]);
+
+        if (field && saved != null && saved != "") {
+            field.value = saved;
+        }
+    }
+}
+
+// clear local storage
+function clearStorage() {
+    for (var i = 0; i < saveFields.length; i++) {
+        localStorage.removeItem(saveFields[i]);
+    }
 }
