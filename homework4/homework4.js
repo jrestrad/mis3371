@@ -708,7 +708,6 @@ function saveAllFields() {
         setCookie("fname", fname, 48);
     }
 }
-
 function loadFromStorage() {
     for (var i = 0; i < saveFields.length; i++) {
         var val = localStorage.getItem(saveFields[i]);
@@ -720,7 +719,7 @@ function loadFromStorage() {
     // update slider display after restoring
     var slider = document.getElementById("health");
     document.getElementById("healthDisplay").innerHTML = slider.value;
-   
+}
 
 // clear local storage
 function clearStorage() {
