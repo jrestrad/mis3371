@@ -588,66 +588,50 @@ async function loadStates() {
 }
 // session timer
 var sessionSeconds = 0;
-
 function startSessionTimer() {
     setInterval(function() {
-        var mins;
-        var secs;
-
-        sessionSeconds = sessionSeconds + 1;
-        mins = Math.floor(sessionSeconds / 60);
-        secs = sessionSeconds % 60;
-
-        if (secs < 10) {
-            secs = "0" + secs;
-        }
-
-        document.getElementById("sessionTimer").innerHTML = "Session: " + mins + ":" + secs;
+        sessionSeconds++;
+        var mins = Math.floor(sessionSeconds / 60);
+        var secs = sessionSeconds % 60;
+        if (secs < 10) { secs = "0" + secs; }
+        document.getElementById("sessionTimer").innerHTML =
+            "Session: " + mins + ":" + secs;
     }, 1000);
 }
 
 // make user fill name first
 function enforceOrder() {
-    var first = document.getElementById("firstName").value;
-    var last = document.getElementById("lastName").value;
-
-    if (first == "" || last == "") {
-        alert("Please enter your first and last name before creating a User ID.");
+    var fName = document.getElementById("firstName").value;
+    var lName = document.getElementById("lastName").value;
+    if (fName == "" || lName == "") {
+        alert("Please enter your name before creating a User ID.");
         document.getElementById("firstName").focus();
         return false;
     }
-
     return true;
 }
 
 // set cookie
 function setCookie(cname, cvalue, hours) {
     var d = new Date();
-    var expires;
-
     d.setTime(d.getTime() + (hours * 60 * 60 * 1000));
-    expires = "expires=" + d.toUTCString();
-
-    document.cookie = cname + "=" + encodeURIComponent(cvalue) + ";" + expires + ";path=/";
+    var expires = "expires=" + d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 
 // get cookie
 function getCookie(cname) {
     var name = cname + "=";
-    var cookies = document.cookie.split(";");
-
-    for (var i = 0; i < cookies.length; i++) {
-        var c = cookies[i];
-
+    var ca = document.cookie.split(";");
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
         while (c.charAt(0) == " ") {
             c = c.substring(1);
         }
-
         if (c.indexOf(name) == 0) {
-            return decodeURIComponent(c.substring(name.length, c.length));
+            return c.substring(name.length, c.length);
         }
     }
-
     return "";
 }
 
@@ -659,51 +643,44 @@ function deleteCookie(cname) {
 // check if returning user
 function checkCookie() {
     var fname = getCookie("fname");
-
+    var welcome = document.getElementById("welcomeMsg");
+    var notMeWrap = document.getElementById("notMeWrap");
+    var notMeLabel = document.getElementById("notMeLabel");
     if (fname != "") {
-        document.getElementById("welcomeMsg").innerHTML = "Welcome back, " + fname + "!";
-        document.getElementById("notMeLabel").innerHTML = " Not " + fname + "? Click here to start as a NEW USER.";
-        document.getElementById("notMeWrap").style.display = "block";
+        welcome.innerHTML = "Welcome back, " + fname + "!";
+        notMeLabel.innerHTML = " Not " + fname + "? Click here to start as a NEW USER.";
+        notMeWrap.style.display = "block";
         document.getElementById("firstName").value = fname;
-
+        // load everything else from local storage
         loadFromStorage();
-    }
-    else {
-        document.getElementById("welcomeMsg").innerHTML = "Hello, new user! Welcome to Gulfstone Medical.";
-        document.getElementById("notMeWrap").style.display = "none";
+    } else {
+        welcome.innerHTML = "Hello, new user! Welcome to Gulfstone Medical.";
+        notMeWrap.style.display = "none";
     }
 }
-
 // start over as new user
 function startAsNewUser() {
     deleteCookie("fname");
     clearStorage();
-
     document.getElementById("patientForm").reset();
-
-    if (document.getElementById("health")) {
-        document.getElementById("healthDisplay").innerHTML = document.getElementById("health").value;
-    }
-
-    document.getElementById("welcomeMsg").innerHTML = "Hello, new user! Welcome to Gulfstone Medical.";
+    document.getElementById("welcomeMsg").innerHTML =
+        "Hello, new user! Welcome to Gulfstone Medical.";
     document.getElementById("notMeWrap").style.display = "none";
     document.getElementById("rememberMe").checked = true;
-
     alert("Form cleared. You can start over as a new user.");
 }
 
 // remember me checkbox
 function rememberToggle() {
-    var box = document.getElementById("rememberMe");
-    var fname = document.getElementById("firstName").value;
-
-    if (box.checked) {
+    var rm = document.getElementById("rememberMe");
+    if (rm.checked) {
+        var fname = document.getElementById("firstName").value;
         if (fname != "") {
             setCookie("fname", fname, 48);
         }
         saveAllFields();
-    }
-    else {
+    } else {
+        // user unchecked it - wipe everything
         deleteCookie("fname");
         clearStorage();
     }
@@ -711,28 +688,18 @@ function rememberToggle() {
 
 // check remember me
 function isRememberOn() {
-    if (document.getElementById("rememberMe") == null) {
-        return false;
-    }
-
-    if (document.getElementById("rememberMe").checked) {
-        return true;
-    }
-
-    return false;
+    var rm = document.getElementById("rememberMe");
+    if (rm == null) { return false; }
+    return rm.checked;
 }
-
 // save form data
 function saveAllFields() {
-    if (!isRememberOn()) {
-        return;
-    }
-
+    if (!isRememberOn()) { return; }
+    // text/select fields
     for (var i = 0; i < saveFields.length; i++) {
-        var field = document.getElementById(saveFields[i]);
-
-        if (field) {
-            localStorage.setItem(saveFields[i], field.value);
+        var el = document.getElementById(saveFields[i]);
+        if (el) {
+            localStorage.setItem(saveFields[i], el.value);
         }
     }
 
@@ -747,15 +714,12 @@ function saveAllFields() {
 // load saved form data
 function loadFromStorage() {
     for (var i = 0; i < saveFields.length; i++) {
-        var saved = localStorage.getItem(saveFields[i]);
-        var field = document.getElementById(saveFields[i]);
-
-        if (field && saved != null && saved != "") {
-            field.value = saved;
+        var val = localStorage.getItem(saveFields[i]);
+        var el = document.getElementById(saveFields[i]);
+        if (el && val != null && val != "") {
+            el.value = val;
         }
     }
-}
-
 // clear local storage
 function clearStorage() {
     for (var i = 0; i < saveFields.length; i++) {
