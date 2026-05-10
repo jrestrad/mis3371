@@ -1,0 +1,32 @@
+<!doctype html>
+<!--
+Program name: resources.html
+Author: Jacob Richard Estrada
+Date created: 5/4/2026
+Date last edited: 5/8/2026
+Version: 1.0
+Description: Small iframe content page for extra info 
+-->
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Patient Resources</title>
+</head>
+
+<body style="margin:10px; background-color:white;">
+  <h3 style="margin-top:0; color:#004080;">Patient Portal Information</h3>
+
+  <p>
+    This form is used to request access to the Gulfstone Medical patient portal.
+    Please do not use this form for emergency medical problems.
+  </p>
+
+  <p>
+    Helpful link:
+    <a href="https://www.cdc.gov" target="_blank" rel="noopener">
+      CDC Health Information
+    </a>
+  </p>
+</body>
+</html>
