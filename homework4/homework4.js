@@ -652,18 +652,21 @@ function deleteCookie(cname) {
 function checkCookie() {
     var fname = getCookie("fname");
     var welcome = document.getElementById("welcomeMsg");
-    var notMeWrap = document.getElementById("notMeWrap");
-    var notMeLabel = document.getElementById("notMeLabel");
     if (fname != "") {
-        welcome.innerHTML = "Welcome back, " + fname + "!";
-        notMeLabel.innerHTML = " Not " + fname + "? Click here to start as a NEW USER.";
-        notMeWrap.style.display = "block";
-        document.getElementById("firstName").value = fname;
-        // load everything else from local storage
-        loadFromStorage();
+        var msg = "Welcome back " + fname + ".\nPress OK to confirm or Cancel if this isn't " + fname + ".";
+        if (confirm(msg)) {
+            welcome.innerHTML = "Welcome back, " + fname + "!";
+            document.getElementById("firstName").value = fname;
+            loadFromStorage();
+        } else {
+            // not them - wipe and start over
+            deleteCookie("fname");
+            clearStorage();
+            document.getElementById("patientForm").reset();
+            welcome.innerHTML = "Hello, new user! Welcome to Gulfstone Medical.";
+        }
     } else {
         welcome.innerHTML = "Hello, new user! Welcome to Gulfstone Medical.";
-        notMeWrap.style.display = "none";
     }
 }
 // start over as new user
