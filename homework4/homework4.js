@@ -600,6 +600,7 @@ function startSessionTimer() {
    document.onkeypress = function() { idleSeconds = 0; }
    setInterval(function() {
         sessionSeconds++;
+        idleSeconds++;
         var mins = Math.floor(sessionSeconds / 60);
         var secs = sessionSeconds % 60;
         if (secs < 10) { secs = "0" + secs; }
@@ -608,6 +609,7 @@ function startSessionTimer() {
       if (idleSeconds == 300) {
             alert("Are you still there?");
             idleSeconds = 0;
+      }
     }, 1000);
 }
 
