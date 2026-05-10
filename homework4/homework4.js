@@ -11,10 +11,8 @@ AI Credits:
 // fields to save
 var saveFields = [
     "firstName", "middleInitial", "lastName", "dob",
-    "email", "phone",
-    "addr1", "addr2", "city", "state", "zip",
-    "userId",
-    "health", "symptoms"
+    "email", "phone","addr1", "addr2", "city", 
+   "state", "zip", "userId", "health", "symptoms"
 ];
 // set dob
 window.onload = function() {
@@ -596,18 +594,24 @@ async function loadStates() {
 }
 // session timer
 var sessionSeconds = 0;
+var idleSeconds = 0;
 function startSessionTimer() {
-    setInterval(function() {
+   document.onmousemove = function() { idleSeconds = 0; }
+   document.onkeypress = function() { idleSeconds = 0; }
+   setInterval(function() {
         sessionSeconds++;
         var mins = Math.floor(sessionSeconds / 60);
         var secs = sessionSeconds % 60;
         if (secs < 10) { secs = "0" + secs; }
         document.getElementById("sessionTimer").innerHTML =
             "Session: " + mins + ":" + secs;
+      if (idleSeconds == 300) {
+            alert("Are you still there?");
+            idleSeconds = 0;
     }, 1000);
 }
 
-// make user fill name first
+// fill name first
 function enforceOrder() {
     var fName = document.getElementById("firstName").value;
     var lName = document.getElementById("lastName").value;
@@ -653,17 +657,17 @@ function checkCookie() {
     var fname = getCookie("fname");
     var welcome = document.getElementById("welcomeMsg");
     if (fname != "") {
-        var msg = "Welcome back " + fname + ".\nPress OK to confirm or Cancel if this isn't " + fname + ".";
-        if (confirm(msg)) {
-            welcome.innerHTML = "Welcome back, " + fname + "!";
-            document.getElementById("firstName").value = fname;
-            loadFromStorage();
+      var msg = "Welcome back " + fname + ".\nPress OK to confirm or Cancel if this isn't " + fname + ".";
+      if (confirm(msg)) {
+         welcome.innerHTML = "Welcome back, " + fname + "!";
+         document.getElementById("firstName").value = fname;
+         loadFromStorage();
         } else {
-            // not them - wipe and start over
-            deleteCookie("fname");
-            clearStorage();
-            document.getElementById("patientForm").reset();
-            welcome.innerHTML = "Hello, new user! Welcome to Gulfstone Medical.";
+// not them 
+         deleteCookie("fname");
+         clearStorage();
+         document.getElementById("patientForm").reset();
+         welcome.innerHTML = "Hello, new user! Welcome to Gulfstone Medical.";
         }
     } else {
         welcome.innerHTML = "Hello, new user! Welcome to Gulfstone Medical.";
@@ -694,7 +698,7 @@ function isRememberOn() {
 // save form data
 function saveAllFields() {
     if (!isRememberOn()) { return; }
-    // text/select fields
+// text/select fields
     for (var i = 0; i < saveFields.length; i++) {
         var el = document.getElementById(saveFields[i]);
         if (el) {
@@ -716,7 +720,7 @@ function loadFromStorage() {
             el.value = val;
         }
     }
-    // update slider display after restoring
+    // update slider 
     var slider = document.getElementById("health");
     document.getElementById("healthDisplay").innerHTML = slider.value;
 }
