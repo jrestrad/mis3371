@@ -8,6 +8,14 @@
 AI Credits:
 - Used AI assistance: Claude/ChatGPT for some regex checking, window popup form contatenation and Fetch/cookie examples on 5/4/2026.
 */
+// fields to save
+var saveFields = [
+    "firstName", "middleInitial", "lastName", "dob",
+    "email", "phone",
+    "addr1", "addr2", "city", "state", "zip",
+    "userId",
+    "health", "symptoms"
+];
 // set dob
 window.onload = function() {
     var today = new Date();
@@ -707,11 +715,9 @@ function saveAllFields() {
 
     if (fname != "") {
         setCookie("fname", fname, 48);
-        document.getElementById("welcomeMsg").innerHTML = "Welcome back, " + fname + "!";
     }
 }
 
-// load saved form data
 function loadFromStorage() {
     for (var i = 0; i < saveFields.length; i++) {
         var val = localStorage.getItem(saveFields[i]);
@@ -720,6 +726,11 @@ function loadFromStorage() {
             el.value = val;
         }
     }
+    // update slider display after restoring
+    var slider = document.getElementById("health");
+    document.getElementById("healthDisplay").innerHTML = slider.value;
+   
+
 // clear local storage
 function clearStorage() {
     for (var i = 0; i < saveFields.length; i++) {
