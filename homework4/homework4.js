@@ -606,7 +606,7 @@ function startSessionTimer() {
         if (secs < 10) { secs = "0" + secs; }
         document.getElementById("sessionTimer").innerHTML =
             "Session: " + mins + ":" + secs;
-      if (idleSeconds == 300) {
+      if (idleSeconds == 30) {
             alert("Are you still there?");
             idleSeconds = 0;
       }
