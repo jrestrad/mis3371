@@ -488,17 +488,17 @@ function reviewData() {
     formoutput = formoutput + "<tr><th>Field</th><th>Value</th><th>Status</th></tr>";
  
     // personal
-    formoutput = formoutput + "<tr><td colspan='3' class='sec'>Personal Information</td></tr>";
+    formoutput = formoutput + "<tr><td colspan='3'>Personal Information</td></tr>";
     var nameVal = firstName + " " + document.getElementById("middleInitial").value + " " + lastName;
     var nameErr = (firstName == "" || lastName == "") ? "ERROR: Required" : "pass";
-    formoutput = formoutput + "<tr><td class='lbl'>Name</td><td>" + nameVal + "</td>";
+    formoutput = formoutput + "<tr><td>Name</td><td>" + nameVal + "</td>";
     formoutput = formoutput + "<td class='" + (nameErr == "pass" ? "pass" : "err") + "'>" + nameErr + "</td></tr>";
-    formoutput = formoutput + "<tr><td class='lbl'>Date of Birth</td><td>" + (dob != "" ? dob : "(not entered)") + "</td>";
+    formoutput = formoutput + "<tr><td>Date of Birth</td><td>" + (dob != "" ? dob : "(not entered)") + "</td>";
     formoutput = formoutput + "<td class='" + (dobErr == "" ? "pass" : "err") + "'>" + (dobErr == "" ? "pass" : dobErr) + "</td></tr>";
  
    // contact
-    formoutput = formoutput + "<tr><td colspan='3' class='sec'>Contact &amp; Verification</td></tr>";
-    formoutput = formoutput + "<tr><td class='lbl'>Email</td><td>" + (email != "" ? email : "(not entered)") + "</td>";
+    formoutput = formoutput + "<tr><td colspan='3'>Contact &amp; Verification</td></tr>";
+    formoutput = formoutput + "<tr><td>Email</td><td>" + (email != "" ? email : "(not entered)") + "</td>";
     formoutput = formoutput + "<td class='" + (email != "" ? "pass" : "err") + "'>" + (email != "" ? "pass" : "ERROR: Required") + "</td></tr>";
 
     // check phone 2
@@ -507,7 +507,7 @@ function reviewData() {
     if (phoneVal != "" && !/^\d{3}-\d{3}-\d{4}$/.test(phoneVal)) {
         phoneErr = "ERROR: Format must be ###-###-####";
     }
-    formoutput = formoutput + "<tr><td class='lbl'>Phone</td><td>" + (phoneVal != "" ? phoneVal : "(not entered)") + "</td>";
+    formoutput = formoutput + "<tr><td>Phone</td><td>" + (phoneVal != "" ? phoneVal : "(not entered)") + "</td>";
     formoutput = formoutput + "<td class='" + (phoneErr == "" ? "pass" : "err") + "'>" + (phoneErr == "" ? "pass" : phoneErr) + "</td></tr>";
 
     // check ssn 2
@@ -517,34 +517,34 @@ function reviewData() {
         ssnErr = "ERROR: Required";
     } else if (!/^\d{3}-\d{2}-\d{4}$/.test(ssnVal)) {
         ssnErr = "ERROR: Must be 9 digits";}
-    formoutput = formoutput + "<tr><td class='lbl'>SSN</td><td>" + (ssnVal != "" ? "***-**-****" : "(not entered)") + "</td>";
+    formoutput = formoutput + "<tr><td>SSN</td><td>" + (ssnVal != "" ? "***-**-****" : "(not entered)") + "</td>";
     formoutput = formoutput + "<td class='" + (ssnErr == "" ? "pass" : "err") + "'>" + (ssnErr == "" ? "pass" : ssnErr) + "</td></tr>";
  
     // address
-    formoutput = formoutput + "<tr><td colspan='3' class='sec'>Address</td></tr>";
+    formoutput = formoutput + "<tr><td colspan='3'>Address</td></tr>";
     var addr2 = document.getElementById("addr2").value;
     var addrFull = addr1;
     if (addr2 != "") { addrFull = addrFull + "<br>" + addr2; }
     addrFull = addrFull + "<br>" + city + ", " + state + " " + zipShort;
     var addrErr = (addr1 == "" || city == "" || state == "" || zipShort == "") ? "ERROR: Missing info" : "pass";
-    formoutput = formoutput + "<tr><td class='lbl'>Address</td><td>" + addrFull + "</td>";
+    formoutput = formoutput + "<tr><td>Address</td><td>" + addrFull + "</td>";
     formoutput = formoutput + "<td class='" + (addrErr == "pass" ? "pass" : "err") + "'>" + addrErr + "</td></tr>";
  
     // account
-    formoutput = formoutput + "<tr><td colspan='3' class='sec'>Account Creation</td></tr>";
-    formoutput = formoutput + "<tr><td class='lbl'>User ID</td><td>" + (userId != "" ? userId : "(not entered)") + "</td>";
+    formoutput = formoutput + "<tr><td colspan='3'>Account Creation</td></tr>";
+    formoutput = formoutput + "<tr><td>User ID</td><td>" + (userId != "" ? userId : "(not entered)") + "</td>";
     formoutput = formoutput + "<td class='" + (idErr == "" ? "pass" : "err") + "'>" + (idErr == "" ? "pass" : idErr) + "</td></tr>";
-    formoutput = formoutput + "<tr><td class='lbl'>Password</td><td>" + (pwd != "" ? "********" : "(not entered)") + "</td>";
+    formoutput = formoutput + "<tr><td>Password</td><td>" + (pwd != "" ? "********" : "(not entered)") + "</td>";
     formoutput = formoutput + "<td class='" + (pwdErr == "" ? "pass" : "err") + "'>" + (pwdErr == "" ? "pass" : pwdErr) + "</td></tr>";
  
     // health
-    formoutput = formoutput + "<tr><td colspan='3' class='sec'>Health &amp; Insurance</td></tr>";
-    formoutput = formoutput + "<tr><td class='lbl'>Gender</td><td>" + gender + "</td><td class='pass'>pass</td></tr>";
-    formoutput = formoutput + "<tr><td class='lbl'>Vaccinated</td><td>" + vaccinated + "</td><td class='pass'>pass</td></tr>";
-    formoutput = formoutput + "<tr><td class='lbl'>Insurance</td><td>" + insurance + "</td><td class='pass'>pass</td></tr>";
-    formoutput = formoutput + "<tr><td class='lbl'>Wellness Level</td><td>" + document.getElementById("health").value + " / 10</td><td class='pass'>pass</td></tr>";
-    formoutput = formoutput + "<tr><td class='lbl'>Past Illnesses</td><td>" + illnessList + "</td><td class='pass'>pass</td></tr>";
-    formoutput = formoutput + "<tr><td class='lbl'>Symptoms</td><td>" + document.getElementById("symptoms").value + "</td><td class='pass'>pass</td></tr>";
+    formoutput = formoutput + "<tr><td colspan='3'>Health &amp; Insurance</td></tr>";
+    formoutput = formoutput + "<tr><td>Gender</td><td>" + gender + "</td><td class='pass'>pass</td></tr>";
+    formoutput = formoutput + "<tr><td>Vaccinated</td><td>" + vaccinated + "</td><td class='pass'>pass</td></tr>";
+    formoutput = formoutput + "<tr><td>Insurance</td><td>" + insurance + "</td><td class='pass'>pass</td></tr>";
+    formoutput = formoutput + "<tr><td>Wellness Level</td><td>" + document.getElementById("health").value + " / 10</td><td class='pass'>pass</td></tr>";
+    formoutput = formoutput + "<tr><td>Past Illnesses</td><td>" + illnessList + "</td><td class='pass'>pass</td></tr>";
+    formoutput = formoutput + "<tr><td>Symptoms</td><td>" + document.getElementById("symptoms").value + "</td><td class='pass'>pass</td></tr>";
  
     formoutput = formoutput + "</table>";
     formoutput = formoutput + "<div class='btns'>";
@@ -580,7 +580,7 @@ async function loadStates() {
 
    sel.innerHTML = html;
 
-// restore saved state after the options load
+// restore saved state
    var savedState = localStorage.getItem("state");
    if (savedState) {
    sel.value = savedState;
